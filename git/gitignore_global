@@ -21,3 +21,6 @@ __pycache__/
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# System
+.directory
