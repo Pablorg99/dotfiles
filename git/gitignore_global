@@ -1,0 +1,23 @@
+# Editors
+.idea
+cmake-build-debug
+.vscode
+
+# C and C++
+*.a
+*.o
+*.out
+*.exe
+
+# Python
+venv
+*.pyc
+__pycache__/
+
+# Latex
+*.aux
+*.log
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
