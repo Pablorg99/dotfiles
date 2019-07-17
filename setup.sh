@@ -12,6 +12,11 @@ if [ -f $HOME/.zshrc ]; then
     rm -rf $HOME/.zshrc
 fi
 
+if [ -d  $HOME/.oh-my-zsh/custom ]; then
+    rm -rf $HOME/.oh-my-zsh/custom
+fi
+
+
 # Create all soft links
 
 # Git
@@ -20,3 +25,4 @@ ln -s $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
 ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 # Zsh
 ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
+ln -s $HOME/dotfiles/zsh/custom $HOME/.oh-my-zsh
