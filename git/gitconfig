@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /home/pablorg99/dotfiles/git/.gitignore_global
+	excludesfile = /home/pablorg99/dotfiles/git/gitignore_global
 	editor = vim
 [user]
 	email = i72rogup@uco.es
