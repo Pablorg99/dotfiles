@@ -27,4 +27,4 @@ ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
 ln -s $HOME/dotfiles/zsh/custom $HOME/.oh-my-zsh
 
-source $HOME/.zshrc
+exec zsh
