@@ -1,9 +1,16 @@
+# Common terminal use
 alias rf='rm -rf'
+alias fuck='joder'
+
+# Meta aliases
 alias aliases='vim /home/pablorg99/dotfiles/zsh/custom/aliases.zsh'
 alias update-dotfiles='bash /home/pablorg99/dotfiles/update.sh'
-alias ucop='cd /home/pablorg99/Repos/UCO-Practices'
-alias ucossh='ssh i72rogup@ts.uco.es'
-alias templatex='cp /home/pablorg99/dotfiles/latex/latexTemplate.tex . && mv latexTemplate.tex'
+
+# Directories
 alias djangorecipes='cd /home/pablorg99/Repos/DjangoRecipes && source venv/bin/activate'
+alias ucop='cd /home/pablorg99/Repos/UCO-Practices'
+
+# Others
+alias templatex='cp /home/pablorg99/dotfiles/latex/latexTemplate.tex . && mv latexTemplate.tex'
+alias ucossh='ssh i72rogup@ts.uco.es'
 alias lol='leagueoflegends &'
-alias fuck='joder'
