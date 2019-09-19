@@ -1,6 +1,7 @@
 # Common terminal use
 alias rf='rm -rf'
 alias fuck='joder'
+alias sus='systemctl suspend'
 
 # Meta aliases
 alias aliases='vim /home/pablorg99/dotfiles/zsh/custom/aliases.zsh'
