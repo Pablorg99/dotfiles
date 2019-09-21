@@ -9,6 +9,7 @@ alias update-dotfiles='bash /home/pablorg99/dotfiles/update.sh'
 
 # Directories
 alias djangorecipes='cd /home/pablorg99/Repos/DjangoRecipes && source venv/bin/activate'
+alias reactrecipes='cd /home/pablorg99/Repos/DjangoRecipes/Frontend/react-recipes'
 alias ucop='cd /home/pablorg99/Repos/UCO-Practices'
 
 # Others
