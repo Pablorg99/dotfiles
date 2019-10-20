@@ -12,6 +12,7 @@ alias djangorecipes='cd /home/pablorg99/Repos/DjangoRecipes && source venv/bin/a
 alias reactrecipes='cd /home/pablorg99/Repos/DjangoRecipes/Frontend/react-recipes'
 alias ucop='cd /home/pablorg99/Repos/UCO-Practices'
 alias redes='cd /home/pablorg99/Repos/Networks-Practice-2'
+alias gsasd='cd /home/pablorg99/Repos/UCO-Practices/Tercero/GSASD'
 
 # Others
 alias templatex='cp /home/pablorg99/dotfiles/latex/latexTemplate.tex . && mv latexTemplate.tex'
