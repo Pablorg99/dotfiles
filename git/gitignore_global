@@ -8,6 +8,7 @@ cmake-build-debug
 *.o
 *.out
 *.exe
+build/
 
 # Python
 venv
