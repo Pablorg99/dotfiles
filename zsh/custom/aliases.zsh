@@ -5,7 +5,7 @@ alias sus='systemctl suspend'
 
 # Meta aliases
 alias aliases='vim /home/pablorg99/dotfiles/zsh/custom/aliases.zsh'
-alias update-dotfiles='bash /home/pablorg99/dotfiles/update.sh'
+alias dotfiles-update='bash /home/pablorg99/dotfiles/update.sh'
 
 # Directories
 alias djangorecipes='cd /home/pablorg99/Repos/django-recipes && source venv/bin/activate'
