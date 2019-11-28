@@ -30,7 +30,6 @@ ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 # Zsh
 ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
 ln -s $HOME/dotfiles/zsh/custom $HOME/.oh-my-zsh
-
 # Python
 ln -s $HOME/dotfiles/python/pylintrc $HOME/.pylintrc
 
