@@ -15,4 +15,6 @@ alias gsasd='cd /home/pablorg99/Repos/UCO-Practices/Tercero/GSASD'
 
 # Others
 alias templatex='cp /home/pablorg99/dotfiles/latex/latexTemplate.tex . && mv latexTemplate.tex'
+alias tskata='cp -r /home/pablorg99/Repos/codekata-template-typescript/. .'
+alias pykata='cp -r /home/pablorg99/Repos/codekata-template-python/. .'
 alias ucossh='ssh i72rogup@ts.uco.es'
