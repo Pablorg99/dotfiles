@@ -1,17 +1,15 @@
 # Common terminal use
 alias rf='rm -rf'
-alias fuck='joder'
-alias sus='systemctl suspend'
+alias poweroff='systemctl poweroff -i'
+alias reboot='systemctl reboot -i'
 
 # Meta aliases
 alias aliases='vim /home/pablorg99/dotfiles/zsh/custom/aliases.zsh'
 alias dotfiles-update='bash /home/pablorg99/dotfiles/update.sh'
 
 # Directories
-alias djangorecipes='cd /home/pablorg99/Repos/django-recipes && source venv/bin/activate'
-alias reactrecipes='cd /home/pablorg99/Repos/react-recipes'
-alias ucop='cd /home/pablorg99/Repos/UCO-Practices'
-alias gsasd='cd /home/pablorg99/Repos/UCO-Practices/Tercero/GSASD'
+alias djangorecipes='cd /home/pablorg99/development/repositories/sideprojects/django-recipes && source venv/bin/activate'
+alias ucop='cd /home/pablorg99/development/repositories/university/UCO-Practices'
 
 # Others
 alias templatex='cp /home/pablorg99/dotfiles/latex/latexTemplate.tex . && mv latexTemplate.tex'

@@ -12,10 +12,6 @@ if [ -f $HOME/.zshrc ]; then
     rm -rf $HOME/.zshrc
 fi
 
-if [ -d  $HOME/.oh-my-zsh/custom ]; then
-    rm -rf $HOME/.oh-my-zsh/custom
-fi
-
 if [ -f $HOME/.pylintrc ]; then
 	rm -rf $HOME/.pylintrc
 fi
@@ -29,7 +25,6 @@ ln -s $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
 ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
 # Zsh
 ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
-ln -s $HOME/dotfiles/zsh/custom $HOME/.oh-my-zsh
 # Python
 ln -s $HOME/dotfiles/python/pylintrc $HOME/.pylintrc
 
