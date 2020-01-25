@@ -7,6 +7,7 @@
 	# sudo apt install curl
 	# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # install fira code: sudo apt install fonts-firacode
+# install xclip for extensions: sudo apt install xclip
 # install thefuck:
 	# sudo apt install python3-dev python3-pip python3-setuptools
 	# sudo pip3 install thefuck
