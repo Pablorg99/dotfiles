@@ -1,31 +1,11 @@
-# Remove soft links for update if they existed already
+#!/bin/zsh
 
-if [ -f $HOME/.gitconfig ]; then
-    rm -rf $HOME/.gitconfig
-fi
+# CREATE OR UPDATE SOFT LINKS
+ln -sfn $HOME/dotfiles/zsh/.zshrc $HOME/.zshrc
+ln -sfn $HOME/dotfiles/vim/.vimrc $HOME/.vimrc
+ln -sfn $HOME/dotfiles/git/.gitconfig $HOME/.gitconfig
+ln -sfn $HOME/dotfiles/code/settings.json $HOME/.config/Code/User/settings.json
+ln -sfn $HOME/dotfiles/python/.pylintrc $HOME/.pylintrc
 
-if [ -f $HOME/.vimrc ]; then
-    rm -rf $HOME/.vimrc
-fi
-
-if [ -f $HOME/.zshrc ]; then
-    rm -rf $HOME/.zshrc
-fi
-
-if [ -f $HOME/.pylintrc ]; then
-	rm -rf $HOME/.pylintrc
-fi
-
-
-# Create all soft links
-
-# Git
-ln -s $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
-# Vim
-ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
-# Zsh
-ln -s $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
-# Python
-ln -s $HOME/dotfiles/python/pylintrc $HOME/.pylintrc
-
-exec zsh
+# RELOAD SHELL CONFIGURATION
+source $HOME/.zshrc
