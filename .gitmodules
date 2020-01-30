@@ -13,3 +13,6 @@
 [submodule "templates/python-kata-template"]
 	path = templates/python-kata-template
 	url = git@github.com:Pablorg99/python-kata-template.git
+[submodule "templates/typescript-kata-template"]
+	path = templates/typescript-kata-template
+	url = git@github.com:Pablorg99/typescript-kata-template.git
