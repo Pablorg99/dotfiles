@@ -3,7 +3,7 @@ ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ADD_NEWLINE=(false)
 
 # PLUGINS
-plugins=(git zsh-completions docker docker-compose colored-man-pages command-not-found copydir copyfile cp common-aliases zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git common-aliases docker docker-compose copydir copyfile command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
 
 # ENV VARIABLES
 export ZSH="$HOME/.oh-my-zsh"
