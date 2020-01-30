@@ -1,0 +1,8 @@
+[core]
+	excludesfile = $HOME/dotfiles/git/.gitignore
+	editor = vim
+[user]
+	email = pablorodriguezguillen@gmail.com
+	name = Pablo Rodríguez Guillén
+[push]
+	default = simple
