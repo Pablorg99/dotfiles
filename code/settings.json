@@ -1,0 +1,25 @@
+{
+  // THEMES
+  "workbench.colorTheme": "Material Theme High Contrast",
+  "workbench.iconTheme": "material-icon-theme",
+  // FONT
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 18,
+  "editor.fontWeight": "500",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontWeightBold": "500",
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontFamily": "Fira Code",
+  "terminal.integrated.fontWeight": "500",
+  // VIEW
+  "window.menuBarVisibility": "toggle",
+  "editor.wordWrap": "on",
+  "window.zoomLevel": 0,
+  // FORMAT
+  "editor.formatOnSave": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // CONFIRMATIONS
+  "explorer.confirmDelete": false
+}
