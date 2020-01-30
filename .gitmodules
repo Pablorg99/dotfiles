@@ -8,7 +8,7 @@
 	path = zsh/custom/themes/spaceship-prompt
 	url = git@github.com:denysdovhan/spaceship-prompt.git
 [submodule "zsh/custom/plugins/zsh-completions"]
-	path = zsh/custom/themes/zsh-completions
+	path = zsh/custom/plugins/zsh-completions
 	url = git@github.com:zsh-users/zsh-completions.git
 [submodule "templates/python-kata-template"]
 	path = templates/python-kata-template
