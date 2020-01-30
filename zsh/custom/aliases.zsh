@@ -20,8 +20,12 @@ alias practicesuco="cd $HOME/development/repositories/university/UCO-Practices"
 
 # TEMPLATES
 alias templatex="cp $HOME/dotfiles/templates/latexTemplate.tex . && mv latexTemplate.tex"
-alias tskata="cp -r $HOME/dotfiles/templates/codekata-template-typescript/. ."
-alias pykata="cp -r $HOME/dotfiles/templates/codekata-template-python/. ."
+alias tskata="cp -r $HOME/dotfiles/templates/typescript-kata-template/. ."
+alias pykata="cp -r $HOME/dotfiles/templates/python-kata-template/. ."
+
+# VENV
+alias venv="source venv/bin/activate"
+alias new-venv="virtualenv -p python3 venv && source venv/bin/activate"
 
 # OTHERS
 alias ucossh="ssh i72rogup@ts.uco.es"
