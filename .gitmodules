@@ -7,3 +7,6 @@
 [submodule "zsh/custom/themes/spaceship-prompt"]
 	path = zsh/custom/themes/spaceship-prompt
 	url = git@github.com:denysdovhan/spaceship-prompt.git
+[submodule "zsh/custom/plugins/zsh-completions"]
+	path = zsh/custom/themes/zsh-completions
+	url = git@github.com:zsh-users/zsh-completions.git
