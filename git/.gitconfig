@@ -1,5 +1,5 @@
 [core]
-	excludesfile = $HOME/dotfiles/git/.gitignore
+	excludesfile = ~/dotfiles/git/.gitignore
 	editor = vim
 [user]
 	email = pablorodriguezguillen@gmail.com
