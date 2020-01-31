@@ -3,7 +3,7 @@ ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ADD_NEWLINE=(false)
 
 # PLUGINS
-plugins=(git common-aliases docker docker-compose copydir copyfile command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+plugins=(git common-aliases docker docker-compose thefuck copydir copyfile command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
 
 # ENV VARIABLES
 export ZSH="$HOME/.oh-my-zsh"
@@ -15,5 +15,8 @@ export PATH="$HOME/.yarn/bin:$PATH" # Yarn
 export PATH=".:$PATH" # Current directory
 
 export ANDROID_HOME="$HOME/development/devtools/android-sdk"
+
+# THE FUCK
+eval $(thefuck --alias joder)
 
 source $ZSH/oh-my-zsh.sh
