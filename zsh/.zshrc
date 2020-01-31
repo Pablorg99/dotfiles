@@ -10,7 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/dotfiles/zsh/custom"
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" # Default PATH
-export PATH="$HOME/development/devtools/flutter/bin:$PATH" # Flutter
+export PATH="$HOME/development/devtools/flutter-sdk/bin:$PATH" # Flutter
 export PATH="$HOME/.yarn/bin:$PATH" # Yarn
 export PATH=".:$PATH" # Current directory
 
