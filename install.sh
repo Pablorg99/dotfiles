@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG_FILE="/tmp/log.txt"
+logFile="/tmp/log.txt"
 
 showLoading() {
   myPid=$!
@@ -25,100 +25,100 @@ showLoading() {
 }
 
 updateAndUpgrade() {
-  sudo apt-get update >> $LOG_FILE
-  sudo apt-get upgrade >> $LOG_FILE
+  sudo apt-get update >> $logFile
+  sudo apt-get upgrade >> $logFile
 }
 
 installGit() {
-  sudo apt-get install -y git >> $LOG_FILE
+  sudo apt-get install -y git >> $logFile
 }
 
 installVim() {
-  sudo apt-get install -y vim >> $LOG_FILE
+  sudo apt-get install -y vim >> $logFile
 }
 
 installCurl() {
-  sudo apt-get install -y curl >> $LOG_FILE
+  sudo apt-get install -y curl >> $logFile
 }
 
 installZsh() {
-  sudo apt-get install -y zsh >> $LOG_FILE
+  sudo apt-get install -y zsh >> $logFile
   sudo chsh -s /bin/zsh
 }
 
 installDocker() {
-  sudo apt-get install -y apt-transport-https ca-certificates gnupg-agent software-properties-common >> $LOG_FILE
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &>> $LOG_FILE
-  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" >> $LOG_FILE
-  sudo apt-get update >> $LOG_FILE
-  sudo apt-get install -y docker-ce docker-ce-cli containerd.io >> $LOG_FILE
+  sudo apt-get install -y apt-transport-https ca-certificates gnupg-agent software-properties-common >> $logFile
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &>> $logFile
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" >> $logFile
+  sudo apt-get update >> $logFile
+  sudo apt-get install -y docker-ce docker-ce-cli containerd.io >> $logFile
   sudo usermod -aG docker $USER
 }
 
 installDockerCompose() {
-  sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &>> $LOG_FILE
+  sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &>> $logFile
   sudo chmod +x /usr/local/bin/docker-compose
 }
 
 installNode() {
-  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - &>> $LOG_FILE
-  sudo apt-get install -y nodejs >> $LOG_FILE
+  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - &>> $logFile
+  sudo apt-get install -y nodejs >> $logFile
 }
 
 installYarn() {
-  curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - &>> $LOG_FILE
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list >> $LOG_FILE
-  sudo apt-get update >> $LOG_FILE && sudo apt-get install -y yarn >> $LOG_FILE
+  curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - &>> $logFile
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list >> $logFile
+  sudo apt-get update >> $logFile && sudo apt-get install -y yarn >> $logFile
 }
 
 installPip() {
-  sudo apt-get install -y python-pip >> $LOG_FILE
-  sudo apt-get install -y python3-pip >> $LOG_FILE
+  sudo apt-get install -y python-pip >> $logFile
+  sudo apt-get install -y python3-pip >> $logFile
 }
 
 installVirtualenv() {
-  pip3 install virtualenv >> $LOG_FILE
+  pip3 install virtualenv >> $logFile
 }
 
 installTelegram() {
-  wget https://telegram.org/dl/desktop/linux -O /tmp/telegram.tar.xz &>> $LOG_FILE
-  tar -C /tmp/ -xvf /tmp/telegram.tar.xz >> $LOG_FILE
+  wget https://telegram.org/dl/desktop/linux -O /tmp/telegram.tar.xz &>> $logFile
+  tar -C /tmp/ -xvf /tmp/telegram.tar.xz >> $logFile
   sudo mv /tmp/Telegram /opt/
 }
 
 installFranz() {
-  wget https://github.com/meetfranz/franz/releases/download/v5.4.0/franz_5.4.0_amd64.deb -O /tmp/franz.deb &>> $LOG_FILE
-  sudo dpkg -i /tmp/franz.deb &>> $LOG_FILE
-  sudo apt-get install -f >> $LOG_FILE
+  wget https://github.com/meetfranz/franz/releases/download/v5.4.0/franz_5.4.0_amd64.deb -O /tmp/franz.deb &>> $logFile
+  sudo dpkg -i /tmp/franz.deb &>> $logFile
+  sudo apt-get install -f >> $logFile
 }
 
 installSpotify() {
-  curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - &>> $LOG_FILE
-  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list >> $LOG_FILE
-  sudo apt-get update >> $LOG_FILE && sudo apt-get install -y spotify-client-gnome-support >> $LOG_FILE
+  curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - &>> $logFile
+  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list >> $logFile
+  sudo apt-get update >> $logFile && sudo apt-get install -y spotify-client-gnome-support >> $logFile
 }
 
 installMegaSync() {
-  wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -o /tmp/megasync.deb &>> $LOG_FILE
-  sudo dpkg -i /tmp/megasync.deb &>> $LOG_FILE
-  sudo apt-get install -f >> $LOG_FILE
-  wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/nautilus-megasync-xUbuntu_18.04_amd64.deb -o /tmp/megasync-nautilus-extension &>> $LOG_FILE
-  sudo dpkg -i /tmp/megasync-nautilus-extension &>> $LOG_FILE
-  sudo apt-get install -f >> $LOG_FILE
+  wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -o /tmp/megasync.deb &>> $logFile
+  sudo dpkg -i /tmp/megasync.deb &>> $logFile
+  sudo apt-get install -f >> $logFile
+  wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/nautilus-megasync-xUbuntu_18.04_amd64.deb -o /tmp/megasync-nautilus-extension &>> $logFile
+  sudo dpkg -i /tmp/megasync-nautilus-extension &>> $logFile
+  sudo apt-get install -f >> $logFile
 }
 
 installTilda() {
-  sudo apt-get install -y tilda >> $LOG_FILE
+  sudo apt-get install -y tilda >> $logFile
 }
 
 installVSCode() {
-  wget https://go.microsoft.com/fwlink/?LinkID=760868 -o /tmp/vscode.deb &>> $LOG_FILE
-  sudo dpkg -i /tmp/vscode.deb &>> $LOG_FILE
-  sudo apt-get install -f >> $LOG_FILE
+  wget https://go.microsoft.com/fwlink/?LinkID=760868 -o /tmp/vscode.deb &>> $logFile
+  sudo dpkg -i /tmp/vscode.deb &>> $logFile
+  sudo apt-get install -f >> $logFile
 }
 
 # BASIC PACKAGES
-sudo ls . > $LOG_FILE
+sudo ls . > $logFile
 echo -e "INSTALLING BASIC PACKAGES"
 updateAndUpgrade & showLoading "Updating and upgrading packages"
 installGit & showLoading "Git"
@@ -138,25 +138,79 @@ installMegaSync & showLoading "MegaSync"
 installTilda & showLoading "Tilda"
 installVSCode & showLoading "VSCode"
 
-# # ssh key git
+# SSH KEY
+echo "ADDING SSH KEY TO GITHUB"
+rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
+echo "Creating ssh key"
+ssh-keygen -t rsa -b 4096
+pub=$(cat ~/.ssh/id_rsa.pub)
+read -p "Enter GitHub username: " githubuser
+echo "Using username $githubuser"
+read -s -p "Enter GitHub password for user $githubuser: " githubpass
+curl -u "$githubuser:$githubpass" -X POST -d "{\"title\":\"`hostname`\",\"key\":\"$pub\"}" https://api.github.com/user/keys
 
-# # install oh-my-zsh:
-# sudo apt install curl
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+installOhMyZsh() {
+  wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh &>> $logFile
+  bash /tmp/install-oh-my-zsh.sh --unattended >> $logFile
+  # Installing xclip for copydir and copyfile extensions
+  sudo apt-get install -y xclip >> $logFile
+}
 
-# # install fira code:
-# sudo apt install fonts-firacode
+installFiraCode() {
+  sudo apt-get install -y fonts-firacode >> $logFile
+}
 
-# # install xclip for extensions:
-# sudo apt install xclip
+installTheFuck() {
+  pip3 install thefuck >> $logFile
+}
 
-# # install thefuck:
-# sudo apt install python3-dev python3-pip python3-setuptools
-# sudo pip3 install thefuck
+installNerdTree() {
+  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree >> $logFile
+  vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
+}
 
-# # install nerdtree:
-# git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
-# vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
+# EXTENSIONS AND PLUGINS
+echo "INSTALLING EXTENSIONS AND PLUGINS"
+installOhMyZsh & showLoading "Oh My Zsh"
+installFiraCode & showLoading "Fira Code"
+installTheFuck & show Loading "TheFuck"
+installNerdTree & showLoading "NerdTree"
 
-# # Execute update
+cloneDotfiles() {
+  git clone --recurse-submodules -j8 git@github.com:Pablorg99/dotfiles.git $HOME
+}
+
+developmentFolderStructure() {
+  mkdir $HOME/development
+  mkdir $HOME/development/devtools
+  mkdir $HOME/development/repositories
+  mkdir $HOME/development/repositories/sideprojects
+  mkdir $HOME/development/repositories/codekatas
+  mkdir $HOME/development/repositories/asl
+  mkdir $HOME/development/repositories/university
+}
+
+cloneDjangoRecipes() {
+  git clone git@github.com:Pablorg99/django-recipes.git $HOME/development/repositories/sideprojects >> $logFile
+  virtualenv -p python3 $HOME/development/repositories/sideprojects/django-recipes/venv  >> $logFile
+  source $HOME/development/repositories/sideprojects/django-recipes/venv/bin/activate >> $logFile
+}
+
+cloneUcoPuntoMobile() {
+  git clone git@github.com:Pablorg99/ucopunto-mobile.git $HOME/development/repositories/sideprojects >> $logFile
+}
+
+cloneUcoPractices() {
+  git clone git@github.com:Pablorg99/UCO-Practices.git $HOME/development/repositories/university >> $logFile
+}
+
+# CLONING REPOS
+echo "REPOSITORIES AND DEVELOPMENT FOLDER STRUCTURE"
+cloneDotfiles & showLoading "Dotfiles"
+developmentFolderStructure & showLoading "'development' Folder Structure"
+cloneDjangoRecipes & showLoading "Django Recipes"
+cloneUcoPuntoMobile & showLoading "Uco Punto Mobile"
+cloneUcoPractices & showLoading "Uco Practices"
+
+# CREATE SOFT LINKS
 zsh "$HOME/dotfiles/update.sh"
