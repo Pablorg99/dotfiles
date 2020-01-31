@@ -8,13 +8,14 @@ alias aliases="vim $HOME/dotfiles/zsh/custom/aliases.zsh"
 alias dotfiles-update="source $HOME/dotfiles/update.sh"
 
 # DIRECTORIES
+alias sp="cd $HOME/development/repositories/sideprojects"
+alias katas="cd $HOME/development/repositories/codekatas"
 alias asl="cd $HOME/development/repositories/asl"
 alias uni="cd $HOME/development/repositories/university"
-alias sp="cd $HOME/development/repositories/sideprojects"
 
 # REPOSITORIES
 alias djangorecipes="cd $HOME/development/repositories/sideprojects/django-recipes && source venv/bin/activate"
-alias reactrecipes="cd $HOME/development/repositories/sideprojects/react-recipes"
+# alias reactrecipes="cd $HOME/development/repositories/sideprojects/react-recipes"
 alias ucopuntomobile="cd $HOME/development/repositories/sideprojects/ucopunto-mobile"
 alias practicesuco="cd $HOME/development/repositories/university/UCO-Practices"
 
@@ -28,4 +29,4 @@ alias venv="source venv/bin/activate"
 alias new-venv="virtualenv -p python3 venv && source venv/bin/activate"
 
 # OTHERS
-alias ucossh="ssh i72rogup@ts.uco.es"
+alias ucossh="ssh -X i72rogup@ts.uco.es"
