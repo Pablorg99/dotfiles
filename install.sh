@@ -68,7 +68,8 @@ installNode() {
 installYarn() {
   curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - &>> $logFile
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list >> $logFile
-  sudo apt-get update >> $logFile && sudo apt-get install -y yarn >> $logFile
+  sudo apt-get update >> $logFile
+  sudo apt-get install -y yarn >> $logFile
 }
 
 installPip() {
@@ -95,14 +96,15 @@ installFranz() {
 installSpotify() {
   curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - &>> $logFile
   echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list >> $logFile
-  sudo apt-get update >> $logFile && sudo apt-get install -y spotify-client-gnome-support >> $logFile
+  sudo apt-get update >> $logFile
+  sudo apt-get install -y spotify-client-gnome-support >> $logFile
 }
 
 installMegaSync() {
-  wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -o /tmp/megasync.deb &>> $logFile
+  wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -O /tmp/megasync.deb &>> $logFile
   sudo dpkg -i /tmp/megasync.deb &>> $logFile
   sudo apt-get install -f >> $logFile
-  wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/nautilus-megasync-xUbuntu_18.04_amd64.deb -o /tmp/megasync-nautilus-extension &>> $logFile
+  wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/nautilus-megasync-xUbuntu_18.04_amd64.deb -O /tmp/megasync-nautilus-extension &>> $logFile
   sudo dpkg -i /tmp/megasync-nautilus-extension &>> $logFile
   sudo apt-get install -f >> $logFile
 }
@@ -112,7 +114,7 @@ installTilda() {
 }
 
 installVSCode() {
-  wget https://go.microsoft.com/fwlink/?LinkID=760868 -o /tmp/vscode.deb &>> $logFile
+  wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb &>> $logFile
   sudo dpkg -i /tmp/vscode.deb &>> $logFile
   sudo apt-get install -f >> $logFile
 }
@@ -141,7 +143,6 @@ installVSCode & showLoading "VSCode"
 # SSH KEY
 echo "ADDING SSH KEY TO GITHUB"
 rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
-echo "Creating ssh key"
 ssh-keygen -t rsa -b 4096
 pub=$(cat ~/.ssh/id_rsa.pub)
 read -p "Enter GitHub username: " githubuser
@@ -150,8 +151,8 @@ read -s -p "Enter GitHub password for user $githubuser: " githubpass
 curl -u "$githubuser:$githubpass" -X POST -d "{\"title\":\"`hostname`\",\"key\":\"$pub\"}" https://api.github.com/user/keys
 
 installOhMyZsh() {
-  wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh &>> $logFile
-  bash /tmp/install-oh-my-zsh.sh --unattended >> $logFile
+  wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh >> $logFile
+  bash /tmp/install-oh-my-zsh.sh --unattended &>> $logFile
   # Installing xclip for copydir and copyfile extensions
   sudo apt-get install -y xclip >> $logFile
 }
@@ -165,7 +166,7 @@ installTheFuck() {
 }
 
 installNerdTree() {
-  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree >> $logFile
+  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree &>> $logFile
   vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
 }
 
@@ -177,7 +178,7 @@ installTheFuck & show Loading "TheFuck"
 installNerdTree & showLoading "NerdTree"
 
 cloneDotfiles() {
-  git clone --recurse-submodules -j8 git@github.com:Pablorg99/dotfiles.git $HOME
+  git clone --recurse-submodules -j8 git@github.com:Pablorg99/dotfiles.git $HOME/ &>> $logFile
 }
 
 developmentFolderStructure() {
@@ -191,17 +192,17 @@ developmentFolderStructure() {
 }
 
 cloneDjangoRecipes() {
-  git clone git@github.com:Pablorg99/django-recipes.git $HOME/development/repositories/sideprojects >> $logFile
+  git clone git@github.com:Pablorg99/django-recipes.git $HOME/development/repositories/sideprojects &>> $logFile
   virtualenv -p python3 $HOME/development/repositories/sideprojects/django-recipes/venv  >> $logFile
   source $HOME/development/repositories/sideprojects/django-recipes/venv/bin/activate >> $logFile
 }
 
 cloneUcoPuntoMobile() {
-  git clone git@github.com:Pablorg99/ucopunto-mobile.git $HOME/development/repositories/sideprojects >> $logFile
+  git clone git@github.com:Pablorg99/ucopunto-mobile.git $HOME/development/repositories/sideprojects &>> $logFile
 }
 
 cloneUcoPractices() {
-  git clone git@github.com:Pablorg99/UCO-Practices.git $HOME/development/repositories/university >> $logFile
+  git clone git@github.com:Pablorg99/UCO-Practices.git $HOME/development/repositories/university &>> $logFile
 }
 
 # CLONING REPOS
