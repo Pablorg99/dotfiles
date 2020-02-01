@@ -84,7 +84,7 @@ installVirtualenv() {
 installTelegram() {
   wget https://telegram.org/dl/desktop/linux -O /tmp/telegram.tar.xz &>> $logFile
   tar -C /tmp/ -xvf /tmp/telegram.tar.xz >> $logFile
-  sudo mv /tmp/Telegram /opt/
+  sudo mv -f /tmp/Telegram /opt/
 }
 
 installFranz() {
@@ -147,11 +147,11 @@ ssh-keygen -t rsa -b 4096
 sshKey=$(cat ~/.ssh/id_rsa.pub)
 read -s -p "Enter a personal acces token token with 'write:public_key' scope (https://github.com/settings/tokens): " githubToken
 curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hostname)\", \"key\": \"$sshKey\"}" https://api.github.com/user/keys &>> $logFile
-echo -e "\n"
+echo -ne "\n"
 yes | ssh -T git@github.com >> $logFile
 
 installOhMyZsh() {
-  wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh >> $logFile
+  wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh &>> $logFile
   bash /tmp/install-oh-my-zsh.sh --unattended &>> $logFile
   # Installing xclip for copydir and copyfile extensions
   sudo apt-get install -y xclip >> $logFile
@@ -178,7 +178,7 @@ installTheFuck & show Loading "TheFuck"
 installNerdTree & showLoading "NerdTree"
 
 cloneDotfiles() {
-  git clone --recurse-submodules git@github.com:Pablorg99/dotfiles.git $HOME/ &>> $logFile
+  git clone --recurse-submodules git@github.com:Pablorg99/dotfiles.git $HOME/dotfiles &>> $logFile
 }
 
 developmentFolderStructure() {
@@ -192,17 +192,17 @@ developmentFolderStructure() {
 }
 
 cloneDjangoRecipes() {
-  git clone git@github.com:Pablorg99/django-recipes.git $HOME/development/repositories/sideprojects &>> $logFile
+  git clone git@github.com:Pablorg99/django-recipes.git $HOME/development/repositories/sideprojects/django-recipes &>> $logFile
   virtualenv -p python3 $HOME/development/repositories/sideprojects/django-recipes/venv  >> $logFile
   source $HOME/development/repositories/sideprojects/django-recipes/venv/bin/activate >> $logFile
 }
 
 cloneUcoPuntoMobile() {
-  git clone git@github.com:Pablorg99/ucopunto-mobile.git $HOME/development/repositories/sideprojects &>> $logFile
+  git clone git@github.com:Pablorg99/ucopunto-mobile.git $HOME/development/repositories/sideprojects/ucopunto-mobile &>> $logFile
 }
 
 cloneUcoPractices() {
-  git clone git@github.com:Pablorg99/UCO-Practices.git $HOME/development/repositories/university &>> $logFile
+  git clone git@github.com:Pablorg99/UCO-Practices.git $HOME/development/repositories/university/UCO-Practices &>> $logFile
 }
 
 # CLONING REPOS
