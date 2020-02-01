@@ -73,8 +73,8 @@ installYarn() {
 }
 
 installPip() {
-  sudo apt-get install -y python-pip >> $logFile
-  sudo apt-get install -y python3-pip >> $logFile
+  sudo apt-get install -y python-pip &>> $logFile
+  sudo apt-get install -y python3-pip &>> $logFile
 }
 
 installVirtualenv() {
@@ -90,7 +90,7 @@ installTelegram() {
 installFranz() {
   wget https://github.com/meetfranz/franz/releases/download/v5.4.0/franz_5.4.0_amd64.deb -O /tmp/franz.deb &>> $logFile
   sudo dpkg -i /tmp/franz.deb &>> $logFile
-  sudo apt-get install -f >> $logFile
+  sudo apt-get install -f -y >> $logFile
 }
 
 installSpotify() {
@@ -103,10 +103,10 @@ installSpotify() {
 installMegaSync() {
   wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -O /tmp/megasync.deb &>> $logFile
   sudo dpkg -i /tmp/megasync.deb &>> $logFile
-  sudo apt-get install -f >> $logFile
+  sudo apt-get install -f -y >> $logFile
   wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/nautilus-megasync-xUbuntu_18.04_amd64.deb -O /tmp/megasync-nautilus-extension &>> $logFile
   sudo dpkg -i /tmp/megasync-nautilus-extension &>> $logFile
-  sudo apt-get install -f >> $logFile
+  sudo apt-get install -f -y >> $logFile
 }
 
 installTilda() {
@@ -116,7 +116,7 @@ installTilda() {
 installVSCode() {
   wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb &>> $logFile
   sudo dpkg -i /tmp/vscode.deb &>> $logFile
-  sudo apt-get install -f >> $logFile
+  sudo apt-get install -f -y >> $logFile
 }
 
 # BASIC PACKAGES
@@ -144,10 +144,9 @@ installVSCode & showLoading "VSCode"
 echo "ADDING SSH KEY TO GITHUB"
 rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
 ssh-keygen -t rsa -b 4096
-pub=$(cat ~/.ssh/id_rsa.pub)
-read -p "Enter GitHub username: " githubUser
-read -p "Enter a $githubUser's token (https://github.com/settings/tokens): " githubToken
-curl -u "$githubUser:$githubToken" -X POST -d "{\"title\":\"`hostname`\",\"key\":\"$pub\"}" https://api.github.com/user/keys
+sshKey=$(cat ~/.ssh/id_rsa.pub)
+read -s -p "Enter a personal acces token token with 'write:public_key' scope \(https://github.com/settings/tokens\): " githubToken
+curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hostname)\", \"key\": \"$sshKey\"}" https://api.github.com/user/keys
 
 installOhMyZsh() {
   wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh >> $logFile
