@@ -1,6 +1,11 @@
 #!/bin/bash
 
-logFile="/tmp/log.txt"
+if [ $# -eq 1 ]; then
+  logFile=$1
+else
+  echo "You need provide a path for the log file (e.g './install /tmp/dotfilesInstallLog.txt')"
+  exit 1
+fi
 
 showLoading() {
   myPid=$!
