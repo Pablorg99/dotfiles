@@ -26,7 +26,7 @@ showLoading() {
 
 updateAndUpgrade() {
   sudo apt-get update >> $logFile
-  sudo apt-get upgrade >> $logFile
+  sudo apt-get upgrade -y >> $logFile
 }
 
 installGit() {
@@ -162,7 +162,7 @@ installFiraCode() {
 }
 
 installTheFuck() {
-  pip3 install thefuck >> $logFile
+  sudo -H pip3 install thefuck >> $logFile
 }
 
 installNerdTree() {
@@ -178,7 +178,7 @@ installTheFuck & show Loading "TheFuck"
 installNerdTree & showLoading "NerdTree"
 
 cloneDotfiles() {
-  git clone --recurse-submodules git@github.com:Pablorg99/dotfiles.git $HOME/dotfiles &>> $logFile
+  git clone --recurse-submodules -j8 git@github.com:Pablorg99/dotfiles.git $HOME/dotfiles &>> $logFile
 }
 
 developmentFolderStructure() {
@@ -194,7 +194,6 @@ developmentFolderStructure() {
 cloneDjangoRecipes() {
   git clone git@github.com:Pablorg99/django-recipes.git $HOME/development/repositories/sideprojects/django-recipes &>> $logFile
   virtualenv -p python3 $HOME/development/repositories/sideprojects/django-recipes/venv  >> $logFile
-  source $HOME/development/repositories/sideprojects/django-recipes/venv/bin/activate >> $logFile
 }
 
 cloneUcoPuntoMobile() {
