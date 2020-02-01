@@ -84,7 +84,9 @@ installVirtualenv() {
 installTelegram() {
   wget https://telegram.org/dl/desktop/linux -O /tmp/telegram.tar.xz &>> $logFile
   tar -C /tmp/ -xvf /tmp/telegram.tar.xz >> $logFile
-  sudo mv -f /tmp/Telegram /opt/
+  if [ ! -d /opt/Telegram ]; then
+    sudo mv /tmp/Telegram /opt/
+  fi
 }
 
 installFranz() {
