@@ -145,8 +145,10 @@ echo "ADDING SSH KEY TO GITHUB"
 rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
 ssh-keygen -t rsa -b 4096
 sshKey=$(cat ~/.ssh/id_rsa.pub)
-read -s -p "Enter a personal acces token token with 'write:public_key' scope \(https://github.com/settings/tokens\): " githubToken
-curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hostname)\", \"key\": \"$sshKey\"}" https://api.github.com/user/keys
+read -s -p "Enter a personal acces token token with 'write:public_key' scope (https://github.com/settings/tokens): " githubToken
+curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hostname)\", \"key\": \"$sshKey\"}" https://api.github.com/user/keys &>> $logFile
+echo -e "\n"
+yes | ssh -T git@github.com >> $logFile
 
 installOhMyZsh() {
   wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh >> $logFile
@@ -176,17 +178,17 @@ installTheFuck & show Loading "TheFuck"
 installNerdTree & showLoading "NerdTree"
 
 cloneDotfiles() {
-  git clone --recurse-submodules -j8 git@github.com:Pablorg99/dotfiles.git $HOME/ &>> $logFile
+  git clone --recurse-submodules git@github.com:Pablorg99/dotfiles.git $HOME/ &>> $logFile
 }
 
 developmentFolderStructure() {
-  mkdir $HOME/development
-  mkdir $HOME/development/devtools
-  mkdir $HOME/development/repositories
-  mkdir $HOME/development/repositories/sideprojects
-  mkdir $HOME/development/repositories/codekatas
-  mkdir $HOME/development/repositories/asl
-  mkdir $HOME/development/repositories/university
+  mkdir -p $HOME/development
+  mkdir -p $HOME/development/devtools
+  mkdir -p $HOME/development/repositories
+  mkdir -p $HOME/development/repositories/sideprojects
+  mkdir -p $HOME/development/repositories/codekatas
+  mkdir -p $HOME/development/repositories/asl
+  mkdir -p $HOME/development/repositories/university
 }
 
 cloneDjangoRecipes() {
