@@ -3,10 +3,13 @@
 if [ $# -eq 1 ]; then
   logFile=$1
 else
-  echo "You need provide a path for the log file (e.g './install /tmp/dotfilesInstallLog.txt')"
+  echo "You need provide a path for the log file (e.g. './install /tmp/dotfilesInstallLog.txt')"
   exit 1
 fi
 
+############################
+# DOING OPERATION FEEDBACK #
+############################
 showLoading() {
   myPid=$!
   loadingText=$1
@@ -29,11 +32,19 @@ showLoading() {
   echo -e "$loadingText \e[1;32m\xE2\x9C\x94\e[0m"
 }
 
-updateAndUpgrade() {
+#################
+# SYSTEM UPDATE #
+#################
+systemUpdate() {
   sudo apt-get update >> $logFile
   sudo apt-get upgrade -y >> $logFile
+  sudo apt-get autoremove -y >> $logFile
+  sudo apt-get autoclean >> $logFile
 }
 
+#############################
+# INSTALLING BASIC PACKAGES #
+#############################
 installGit() {
   sudo apt-get install -y git >> $logFile
 }
@@ -82,7 +93,7 @@ installPip() {
 }
 
 installVirtualenv() {
-  pip3 install virtualenv >> $logFile
+  sudo apt-get install -y virtualenv >> $logFile
 }
 
 installTelegram() {
@@ -125,10 +136,70 @@ installVSCode() {
   sudo apt-get install -f -y >> $logFile
 }
 
-# BASIC PACKAGES
+##########################
+# EXTENSIONS AND PLUGINS #
+##########################
+installOhMyZsh() {
+  wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh &>> $logFile
+  bash /tmp/install-oh-my-zsh.sh --unattended &>> $logFile
+  # Installing xclip for copydir and copyfile extensions
+  sudo apt-get install -y xclip >> $logFile
+}
+
+installFiraCode() {
+  sudo apt-get install -y fonts-firacode >> $logFile
+}
+
+installTheFuck() {
+  sudo -H pip3 install thefuck >> $logFile
+}
+
+installNerdTree() {
+  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree &>> $logFile
+  vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q &>> $logFile
+}
+
+################################
+# DEVELOPMENT FOLDER STRUCTURE #
+################################
+developmentFolderStructure() {
+  mkdir -p $HOME/development
+  mkdir -p $HOME/development/devtools
+  mkdir -p $HOME/development/repositories
+  mkdir -p $HOME/development/repositories/sideprojects
+  mkdir -p $HOME/development/repositories/codekatas
+  mkdir -p $HOME/development/repositories/asl
+  mkdir -p $HOME/development/repositories/university
+}
+
+########################
+# CLONING REPOSITORIES #
+########################
+cloneDotfiles() {
+  git clone --recurse-submodules -j8 git@github.com:Pablorg99/dotfiles.git $HOME/dotfiles &>> $logFile
+}
+
+cloneDjangoRecipes() {
+  git clone git@github.com:Pablorg99/django-recipes.git $HOME/development/repositories/sideprojects/django-recipes &>> $logFile
+  virtualenv -p python3 venv >> $logFile
+}
+
+cloneUcoPuntoMobile() {
+  git clone git@github.com:Pablorg99/ucopunto-mobile.git $HOME/development/repositories/sideprojects/ucopunto-mobile &>> $logFile
+}
+
+cloneUcoPractices() {
+  git clone git@github.com:Pablorg99/UCO-Practices.git $HOME/development/repositories/university/UCO-Practices &>> $logFile
+}
+
+# ASK SUDO PASSWORD
 sudo ls . > $logFile
+
+# SYSTEM UPDATE
+systemUpdate & showLoading "SYSTEM UPDATE"
+
+# INSTALLING BASIC PACKAGES
 echo -e "INSTALLING BASIC PACKAGES"
-updateAndUpgrade & showLoading "Updating and upgrading packages"
 installGit & showLoading "Git"
 installVim & showLoading "Vim"
 installZsh & showLoading "Zsh"
@@ -146,7 +217,7 @@ installMegaSync & showLoading "MegaSync"
 installTilda & showLoading "Tilda"
 installVSCode & showLoading "VSCode"
 
-# SSH KEY
+# ADDING SSH KEY TO GITHUB
 echo "ADDING SSH KEY TO GITHUB"
 rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
 ssh-keygen -t rsa -b 4096
@@ -156,63 +227,19 @@ curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hos
 echo -ne "\n"
 yes | ssh -T git@github.com >> $logFile
 
-installOhMyZsh() {
-  wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh &>> $logFile
-  bash /tmp/install-oh-my-zsh.sh --unattended &>> $logFile
-  # Installing xclip for copydir and copyfile extensions
-  sudo apt-get install -y xclip >> $logFile
-}
-
-installFiraCode() {
-  sudo apt-get install -y fonts-firacode >> $logFile
-}
-
-installTheFuck() {
-  sudo -H pip3 install thefuck &>> $logFile
-}
-
-installNerdTree() {
-  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree &>> $logFile
-  vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q &>> $logFile
-}
-
 # EXTENSIONS AND PLUGINS
 echo "INSTALLING EXTENSIONS AND PLUGINS"
 installOhMyZsh & showLoading "Oh My Zsh"
 installFiraCode & showLoading "Fira Code"
-installTheFuck & show Loading "TheFuck"
+installTheFuck & showLoading "TheFuck"
 installNerdTree & showLoading "NerdTree"
 
-cloneDotfiles() {
-  git clone --recurse-submodules -j8 git@github.com:Pablorg99/dotfiles.git $HOME/dotfiles &>> $logFile
-}
+# DEVELOPMENT FOLDER STRUCTURE
+developmentFolderStructure & showLoading "DEVELOPMENT FOLDER STRUCTURE"
 
-developmentFolderStructure() {
-  mkdir -p $HOME/development
-  mkdir -p $HOME/development/devtools
-  mkdir -p $HOME/development/repositories
-  mkdir -p $HOME/development/repositories/sideprojects
-  mkdir -p $HOME/development/repositories/codekatas
-  mkdir -p $HOME/development/repositories/asl
-  mkdir -p $HOME/development/repositories/university
-}
-
-cloneDjangoRecipes() {
-  git clone git@github.com:Pablorg99/django-recipes.git $HOME/development/repositories/sideprojects/django-recipes &>> $logFile
-}
-
-cloneUcoPuntoMobile() {
-  git clone git@github.com:Pablorg99/ucopunto-mobile.git $HOME/development/repositories/sideprojects/ucopunto-mobile &>> $logFile
-}
-
-cloneUcoPractices() {
-  git clone git@github.com:Pablorg99/UCO-Practices.git $HOME/development/repositories/university/UCO-Practices &>> $logFile
-}
-
-# CLONING REPOS
-echo "REPOSITORIES AND DEVELOPMENT FOLDER STRUCTURE"
+# CLONING REPOSITORIES
+echo "CLONING REPOSITORIES"
 cloneDotfiles & showLoading "Dotfiles"
-developmentFolderStructure & showLoading "'development' Folder Structure"
 cloneDjangoRecipes & showLoading "Django Recipes"
 cloneUcoPuntoMobile & showLoading "Uco Punto Mobile"
 cloneUcoPractices & showLoading "Uco Practices"
@@ -220,3 +247,4 @@ cloneUcoPractices & showLoading "Uco Practices"
 # SHELL CONFIGURATION
 sudo chsh -s /bin/zsh $USER
 zsh "$HOME/dotfiles/update.sh"
+exec zsh
