@@ -87,7 +87,7 @@ installYarn() {
   sudo apt-get install -y yarn >> $logFile
 }
 
-installPip() {
+installPythonTools() {
   sudo apt-get install -y python-pip &>> $logFile
   sudo apt-get install -y python3-pip &>> $logFile
 }
@@ -208,7 +208,7 @@ installDocker & showLoading "Docker"
 installDockerCompose & showLoading "Docker-Compose"
 installNode & showLoading "Node"
 installYarn & showLoading "Yarn"
-installPip & showLoading "Pip & Pip3"
+installPythonTools & showLoading "Python Tools"
 installVirtualenv & showLoading "Virtualenv"
 installTelegram & showLoading "Telegram"
 installFranz & showLoading "Franz"
