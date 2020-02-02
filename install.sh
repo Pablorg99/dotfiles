@@ -247,4 +247,5 @@ cloneUcoPractices & showLoading "Uco Practices"
 # SHELL CONFIGURATION
 sudo chsh -s /bin/zsh $USER
 zsh "$HOME/dotfiles/update.sh"
+rm -rf ~/.zcompdump* >> $logFile
 exec zsh
