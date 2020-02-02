@@ -48,7 +48,6 @@ installCurl() {
 
 installZsh() {
   sudo apt-get install -y zsh >> $logFile
-  sudo chsh -s /bin/zsh
 }
 
 installDocker() {
@@ -218,5 +217,6 @@ cloneDjangoRecipes & showLoading "Django Recipes"
 cloneUcoPuntoMobile & showLoading "Uco Punto Mobile"
 cloneUcoPractices & showLoading "Uco Practices"
 
-# CREATE SOFT LINKS
+# SHELL CONFIGURATION
+sudo chsh -s /bin/zsh $USER
 zsh "$HOME/dotfiles/update.sh"
