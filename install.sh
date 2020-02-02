@@ -169,12 +169,12 @@ installFiraCode() {
 }
 
 installTheFuck() {
-  sudo -H pip3 install thefuck >> $logFile
+  sudo -H pip3 install thefuck &>> $logFile
 }
 
 installNerdTree() {
   git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree &>> $logFile
-  vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
+  vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q &>> $logFile
 }
 
 # EXTENSIONS AND PLUGINS
@@ -200,7 +200,6 @@ developmentFolderStructure() {
 
 cloneDjangoRecipes() {
   git clone git@github.com:Pablorg99/django-recipes.git $HOME/development/repositories/sideprojects/django-recipes &>> $logFile
-  virtualenv -p python3 $HOME/development/repositories/sideprojects/django-recipes/venv  >> $logFile
 }
 
 cloneUcoPuntoMobile() {
