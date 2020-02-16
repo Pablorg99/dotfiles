@@ -33,5 +33,7 @@
   // CONFIRMATIONS
   "explorer.confirmDelete": false,
   "git.confirmSync": false,
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+  // SETTINGS SYNC
+  "sync.gist": "1fa5fc817959b29c0982068e4f069dea"
 }
