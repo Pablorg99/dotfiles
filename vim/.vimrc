@@ -1,7 +1,13 @@
 set number
 set tabstop=4
-set smarttab
-set autoindent
+
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
 "Open NERDTree when opening a directory
 autocmd StdinReadPre * let s:std_in=1
