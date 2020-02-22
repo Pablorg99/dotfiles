@@ -32,6 +32,8 @@
   },
   // CONFIRMATIONS
   "explorer.confirmDelete": false,
+  // GIT
+  "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   // SETTINGS SYNC
