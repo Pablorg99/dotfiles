@@ -3,7 +3,7 @@ ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ADD_NEWLINE=(false)
 
 # PLUGINS
-plugins=(git common-aliases docker docker-compose thefuck copydir copyfile command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+plugins=(git common-aliases docker docker-compose flutter thefuck copydir copyfile command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
 
 # ENV VARIABLES
 export ZSH="$HOME/.oh-my-zsh"
@@ -21,4 +21,5 @@ export PATH=".:$PATH" # Current directory
 # THE FUCK
 eval $(thefuck --alias joder)
 
+rm -rf ~/.zcompdump*
 source $ZSH/oh-my-zsh.sh
