@@ -90,14 +90,16 @@ installYarn() {
 installPythonTools() {
   sudo apt-get install -y python-pip &>> $logFile
   sudo apt-get install -y python3-pip &>> $logFile
-  # Poetry
-  curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-  chmod ug+x $HOME/.poetry/env
-  source $HOME/.poetry/env
 }
 
 installVirtualenv() {
   sudo apt-get install -y virtualenv >> $logFile
+}
+
+installPoetry() {
+  curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python >> $logFile
+  chmod ug+x $HOME/.poetry/env
+  source $HOME/.poetry/env
 }
 
 installTelegram() {
@@ -212,8 +214,9 @@ installDocker & showLoading "Docker"
 installDockerCompose & showLoading "Docker-Compose"
 installNode & showLoading "Node"
 installYarn & showLoading "Yarn"
-installPythonTools & showLoading "Python Tools"
+installPip & showLoading "Pip"
 installVirtualenv & showLoading "Virtualenv"
+installPoetry & showLoading "Poetry"
 installTelegram & showLoading "Telegram"
 installFranz & showLoading "Franz"
 installSpotify & showLoading "Spotify"
