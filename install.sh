@@ -102,6 +102,10 @@ installPoetry() {
   source $HOME/.poetry/env
 }
 
+installLatex() {
+  sudo apt-get install -y texlive-full >> $logFile
+}
+
 installTelegram() {
   wget https://telegram.org/dl/desktop/linux -O /tmp/telegram.tar.xz &>> $logFile
   tar -C /tmp/ -xvf /tmp/telegram.tar.xz >> $logFile
@@ -217,6 +221,7 @@ installYarn & showLoading "Yarn"
 installPip & showLoading "Pip"
 installVirtualenv & showLoading "Virtualenv"
 installPoetry & showLoading "Poetry"
+installLatex & showLoading "LaTeX"
 installTelegram & showLoading "Telegram"
 installFranz & showLoading "Franz"
 installSpotify & showLoading "Spotify"
