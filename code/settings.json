@@ -36,6 +36,8 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
+  // LATEX
+  "latex-workshop.view.pdf.viewer": "tab",
   // SETTINGS SYNC
   "sync.gist": "1fa5fc817959b29c0982068e4f069dea"
 }
