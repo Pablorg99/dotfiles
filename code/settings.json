@@ -23,6 +23,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // EDITOR
+  "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "files.exclude": {
     "**/.classpath": true,
@@ -32,6 +33,7 @@
   },
   // CONFIRMATIONS
   "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   // GIT
   "git.autofetch": true,
   "git.confirmSync": false,
