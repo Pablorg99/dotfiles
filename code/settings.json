@@ -19,12 +19,14 @@
   "editor.formatOnSave": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "prettier.singleQuote": true,
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // EDITOR
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "python.jediEnabled": false,
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
@@ -40,6 +42,7 @@
   "git.enableSmartCommit": true,
   // LATEX
   "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.synctex.afterBuild.enabled": true,
   // SETTINGS SYNC
   "sync.gist": "1fa5fc817959b29c0982068e4f069dea"
 }
