@@ -20,7 +20,11 @@ createTypescriptKataFromName() {
         mv src/kata.ts src/"$1".ts
         mv test/kata.spec.ts test/"$1".spec.ts
         sed -i "1s/.*/import Kata from '..\/src\/$1';/" test/"$1".spec.ts
+        rm -rf .git
         yarn install
+        git init
+        git add --all
+        git commit -m "Initial commit"
         code $(pwd)
     else
         echo "Correct usage: tskata <kata_name>"
@@ -35,8 +39,12 @@ createPythonKataFromName() {
         mv src/kata.py src/"$1".py
         mv test/test_kata.py test/test_"$1".py
         sed -i "2s/.*/from src.$1 import Kata/" test/test_"$1".py
+        rm -rf .git
         virtualenv -p python3 venv && source venv/bin/activate
         pip install -r requirements.txt
+        git init
+        git add --all
+        git commit -m "Initial commit"
         code $(pwd)
     else
         echo "Correct usage: pykata <kata_name>"
