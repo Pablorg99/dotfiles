@@ -27,6 +27,7 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "python.jediEnabled": false,
+  "cSpell.language": "en,es",
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
