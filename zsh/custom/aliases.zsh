@@ -6,6 +6,7 @@ createLatexProjectFromName() {
         cp -r $HOME/dotfiles/templates/latex/bibliography.bib $(pwd)
         cp $HOME/dotfiles/templates/latex/latexTemplate.tex $(pwd)
         mv latexTemplate.tex $1.tex
+        mkdir static
         code $(pwd)
     else
         echo "Correct usage: templatex <project_name>"
