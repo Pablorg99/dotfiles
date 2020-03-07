@@ -45,5 +45,8 @@
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.synctex.afterBuild.enabled": true,
   // SETTINGS SYNC
-  "sync.gist": "1fa5fc817959b29c0982068e4f069dea"
+  "sync.gist": "1fa5fc817959b29c0982068e4f069dea",
+  "cSpell.userWords": [
+    "portabilidad"
+  ]
 }
