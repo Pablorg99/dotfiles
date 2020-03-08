@@ -24,10 +24,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // EDITOR
+  "cSpell.language": "en,es",
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "python.jediEnabled": false,
-  "cSpell.language": "en,es",
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
@@ -45,8 +45,5 @@
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.synctex.afterBuild.enabled": true,
   // SETTINGS SYNC
-  "sync.gist": "1fa5fc817959b29c0982068e4f069dea",
-  "cSpell.userWords": [
-    "portabilidad"
-  ]
+  "sync.gist": "1fa5fc817959b29c0982068e4f069dea"
 }
