@@ -24,4 +24,7 @@ eval $(thefuck --alias joder)
 # AUTOCOMPLETION FIXING TRICK
 rm -rf ~/.zcompdump*
 
+# ENABLE GLOBAL SYNTAX
+setopt extended_glob
+
 source $ZSH/oh-my-zsh.sh
