@@ -43,7 +43,7 @@ createPythonKataFromName() {
         virtualenv -p python3 venv && source venv/bin/activate
         pip install -r requirements.txt
         git init
-        git add c--all
+        git add --all
         git commit -m "Initial commit"
         code $(pwd)
     else
