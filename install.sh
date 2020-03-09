@@ -205,29 +205,29 @@ cloneUcoPractices() {
 # ASK SUDO PASSWORD
 sudo ls . > $logFile
 
-# # SYSTEM UPDATE
-# systemUpdate & showLoading "SYSTEM UPDATE"
+# SYSTEM UPDATE
+systemUpdate & showLoading "SYSTEM UPDATE"
 
-# # INSTALLING BASIC PACKAGES
-# echo -e "INSTALLING BASIC PACKAGES"
-# installGit & showLoading "Git"
-# installVim & showLoading "Vim"
-# installZsh & showLoading "Zsh"
-# installCurl & showLoading "Curl"
-# installDocker & showLoading "Docker"
-# installDockerCompose & showLoading "Docker-Compose"
-# installNode & showLoading "Node"
-# installYarn & showLoading "Yarn"
-# installPip & showLoading "Pip"
-# installVirtualenv & showLoading "Virtualenv"
-# installPoetry & showLoading "Poetry"
-# installLatex & showLoading "LaTeX"
-# installTelegram & showLoading "Telegram"
-# installFranz & showLoading "Franz"
-# installSpotify & showLoading "Spotify"
-# installMegaSync & showLoading "MegaSync"
-# installTilda & showLoading "Tilda"
-# installVSCode & showLoading "VSCode"
+# INSTALLING BASIC PACKAGES
+echo -e "INSTALLING BASIC PACKAGES"
+installGit & showLoading "Git"
+installVim & showLoading "Vim"
+installZsh & showLoading "Zsh"
+installCurl & showLoading "Curl"
+installDocker & showLoading "Docker"
+installDockerCompose & showLoading "Docker-Compose"
+installNode & showLoading "Node"
+installYarn & showLoading "Yarn"
+installPip & showLoading "Pip"
+installVirtualenv & showLoading "Virtualenv"
+installPoetry & showLoading "Poetry"
+installLatex & showLoading "LaTeX"
+installTelegram & showLoading "Telegram"
+installFranz & showLoading "Franz"
+installSpotify & showLoading "Spotify"
+installMegaSync & showLoading "MegaSync"
+installTilda & showLoading "Tilda"
+installVSCode & showLoading "VSCode"
 
 # ADDING SSH KEY TO GITHUB
 echo "ADDING SSH KEY TO GITHUB"
@@ -239,24 +239,24 @@ curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hos
 echo -ne "\n"
 yes | ssh -T git@github.com >> $logFile
 
-# # EXTENSIONS AND PLUGINS
-# echo "INSTALLING EXTENSIONS AND PLUGINS"
-# installOhMyZsh & showLoading "Oh My Zsh"
-# installFiraCode & showLoading "Fira Code"
-# installTheFuck & showLoading "TheFuck"
-# installNerdTree & showLoading "NerdTree"
+# EXTENSIONS AND PLUGINS
+echo "INSTALLING EXTENSIONS AND PLUGINS"
+installOhMyZsh & showLoading "Oh My Zsh"
+installFiraCode & showLoading "Fira Code"
+installTheFuck & showLoading "TheFuck"
+installNerdTree & showLoading "NerdTree"
 
-# # DEVELOPMENT FOLDER STRUCTURE
-# developmentFolderStructure & showLoading "DEVELOPMENT FOLDER STRUCTURE"
+# DEVELOPMENT FOLDER STRUCTURE
+developmentFolderStructure & showLoading "DEVELOPMENT FOLDER STRUCTURE"
 
-# # CLONING REPOSITORIES
-# echo "CLONING REPOSITORIES"
-# cloneDotfiles & showLoading "Dotfiles"
-# cloneDjangoRecipes & showLoading "Django Recipes"
-# cloneUcoPuntoMobile & showLoading "Uco Punto Mobile"
-# cloneUcoPractices & showLoading "Uco Practices"
+# CLONING REPOSITORIES
+echo "CLONING REPOSITORIES"
+cloneDotfiles & showLoading "Dotfiles"
+cloneDjangoRecipes & showLoading "Django Recipes"
+cloneUcoPuntoMobile & showLoading "Uco Punto Mobile"
+cloneUcoPractices & showLoading "Uco Practices"
 
-# # SHELL CONFIGURATION
-# sudo chsh -s /bin/zsh $USER
-# zsh "$HOME/dotfiles/update.sh"
-# exec zsh
+# SHELL CONFIGURATION
+sudo chsh -s /bin/zsh $USER
+zsh "$HOME/dotfiles/update.sh"
+exec zsh
