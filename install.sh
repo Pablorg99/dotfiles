@@ -36,10 +36,10 @@ showLoading() {
 # SYSTEM UPDATE #
 #################
 systemUpdate() {
-  sudo apt-get update >> $logFile
-  sudo apt-get upgrade -y >> $logFile
-  sudo apt-get autoremove -y >> $logFile
-  sudo apt-get autoclean >> $logFile
+  sudo apt-get update &>> $logFile
+  sudo apt-get upgrade -y &>> $logFile
+  sudo apt-get autoremove -y &>> $logFile
+  sudo apt-get autoclean &>> $logFile
 }
 
 #############################
@@ -64,7 +64,7 @@ installZsh() {
 installDocker() {
   sudo apt-get install -y apt-transport-https ca-certificates gnupg-agent software-properties-common >> $logFile
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &>> $logFile
-  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" >> $logFile
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" >> $logFile
   sudo apt-get update >> $logFile
   sudo apt-get install -y docker-ce docker-ce-cli containerd.io >> $logFile
   sudo usermod -aG docker $USER
@@ -87,7 +87,7 @@ installYarn() {
   sudo apt-get install -y yarn >> $logFile
 }
 
-installPythonTools() {
+installPip() {
   sudo apt-get install -y python-pip &>> $logFile
   sudo apt-get install -y python3-pip &>> $logFile
 }
@@ -100,6 +100,11 @@ installPoetry() {
   curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python >> $logFile
   chmod ug+x $HOME/.poetry/env
   source $HOME/.poetry/env
+}
+
+installOpenJDKs() {
+  sudo apt-get install -y openjdk-8-jdk >> $logFile
+  sudo apt-get install -y openjdk-11-jdk >> $logFile
 }
 
 installLatex() {
@@ -136,6 +141,12 @@ installMegaSync() {
   sudo apt-get install -f -y >> $logFile
 }
 
+installDropbox() {
+  wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb -O /tmp/dropbox.deb &>> $logFile
+  sudo dpkg -i /tmp/dropbox.deb &>> $logFile
+  sudo apt-get install -f -y >> $logFile
+}
+
 installTilda() {
   sudo apt-get install -y tilda >> $logFile
 }
@@ -156,17 +167,30 @@ installOhMyZsh() {
   sudo apt-get install -y xclip >> $logFile
 }
 
-installFiraCode() {
-  sudo apt-get install -y fonts-firacode >> $logFile
-}
-
 installTheFuck() {
+  sudo apt-get install -y python3-dev python3-pip python3-setuptools
   sudo -H pip3 install thefuck >> $logFile
 }
 
 installNerdTree() {
   git clone https://github.com/scrooloose/nerdtree.git ~/.vim/pack/vendor/start/nerdtree &>> $logFile
   vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q &>> $logFile
+}
+
+installFiraCode() {
+  sudo apt-get install -y fonts-firacode >> $logFile
+}
+
+installAdapta() {
+  sudo add-apt-repository ppa:tista/adapta -y &>> $logFile
+  sudo apt-get update &>> $logFile
+  sudo apt-get install -y adapta-gtk-theme &>> $logFile
+}
+
+installPapirus() {
+  sudo add-apt-repository ppa:papirus/papirus -y &>> $logFile
+  sudo apt-get update &>> $logFile
+  sudo apt-get install -y papirus-icon-theme &>> $logFile
 }
 
 ################################
@@ -221,6 +245,7 @@ installYarn & showLoading "Yarn"
 installPip & showLoading "Pip"
 installVirtualenv & showLoading "Virtualenv"
 installPoetry & showLoading "Poetry"
+installOpenJDKs & showLoading "OpenJDKs"
 installLatex & showLoading "LaTeX"
 installTelegram & showLoading "Telegram"
 installFranz & showLoading "Franz"
@@ -239,12 +264,14 @@ curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hos
 echo -ne "\n"
 yes | ssh -T git@github.com >> $logFile
 
-# EXTENSIONS AND PLUGINS
+# THEMES AND EXTENSIONS
 echo "INSTALLING EXTENSIONS AND PLUGINS"
 installOhMyZsh & showLoading "Oh My Zsh"
-installFiraCode & showLoading "Fira Code"
 installTheFuck & showLoading "TheFuck"
 installNerdTree & showLoading "NerdTree"
+installFiraCode & showLoading "Fira Code"
+installAdapta & showLoading "Adapta"
+installPapirus & showLoading "Papirus"
 
 # DEVELOPMENT FOLDER STRUCTURE
 developmentFolderStructure & showLoading "DEVELOPMENT FOLDER STRUCTURE"
