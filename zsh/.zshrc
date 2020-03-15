@@ -10,7 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/dotfiles/zsh/custom"
 
 export ANDROID_HOME="$HOME/development/devtools/android-sdk"
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" # Default PATH
 export PATH="$HOME/development/devtools/flutter-sdk/bin:$PATH" # Flutter
