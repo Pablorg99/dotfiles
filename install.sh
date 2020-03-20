@@ -251,6 +251,7 @@ installTelegram & showLoading "Telegram"
 installFranz & showLoading "Franz"
 installSpotify & showLoading "Spotify"
 installMegaSync & showLoading "MegaSync"
+installDropbox & showLoading "Dropbox"
 installTilda & showLoading "Tilda"
 installVSCode & showLoading "VSCode"
 
