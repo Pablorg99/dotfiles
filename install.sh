@@ -108,7 +108,7 @@ installOpenJDKs() {
 }
 
 installLatex() {
-  sudo apt-get install -y texlive-full >> $logFile
+  sudo apt-get install -y texlive-full &>> $logFile
 }
 
 installTelegram() {
@@ -168,7 +168,7 @@ installOhMyZsh() {
 }
 
 installTheFuck() {
-  sudo apt-get install -y python3-dev python3-pip python3-setuptools
+  sudo apt-get install -y python3-dev python3-pip python3-setuptools >> $logFile
   sudo -H pip3 install thefuck >> $logFile
 }
 

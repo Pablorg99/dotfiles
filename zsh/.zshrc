@@ -22,7 +22,9 @@ export PATH=".:$PATH" # Current directory
 eval $(thefuck --alias joder)
 
 # AUTOCOMPLETION FIXING TRICK
-rm -rf ~/.zcompdump*
+if ls $HOME/.zcompdump* 1> /dev/null 2>&1; then
+    rm -rf $HOME/.zcompdump*
+fi
 
 # ENABLE GLOBAL SYNTAX
 setopt extended_glob
