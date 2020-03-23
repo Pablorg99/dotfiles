@@ -107,6 +107,23 @@ installOpenJDKs() {
   sudo apt-get install -y openjdk-11-jdk >> $logFile
 }
 
+installFlutter() {
+  git clone https://github.com/flutter/flutter.git -b stable $HOME/development/devtools/flutter-sdk
+}
+
+installAndroidStudio() {
+  wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/3.6.1.0/android-studio-ide-192.6241897-linux.tar.gz -O /tmp/android-studio.tar.gz &>> $logFile
+  tar -C /tmp/ -zxvf /tmp/android-studio.tar.gz
+  if [ ! -d /opt/android-studio ]; then
+    sudo mv /tmp/android-studio /opt/
+  fi
+}
+
+installYouTubeDL() {
+  sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+  sudo chmod a+rx /usr/local/bin/youtube-dl
+}
+
 installLatex() {
   sudo apt-get install -y texlive-full &>> $logFile
 }
@@ -246,6 +263,9 @@ installPip & showLoading "Pip"
 installVirtualenv & showLoading "Virtualenv"
 installPoetry & showLoading "Poetry"
 installOpenJDKs & showLoading "OpenJDKs"
+installFlutter & showLoading "Flutter"
+installAndroidStudio & showLoading "Android Studio"
+installYouTubeDL & showLoading "YouTube-DL"
 installLatex & showLoading "LaTeX"
 installTelegram & showLoading "Telegram"
 installFranz & showLoading "Franz"
