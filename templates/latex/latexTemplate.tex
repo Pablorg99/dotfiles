@@ -1,34 +1,30 @@
-% ----------------------------------------- %
+% --------------------------------------- %
 % Pablo Rodríguez Guillén LaTeX Template
-% ----------------------------------------- %
+% --------------------------------------- %
 
 \documentclass[11pt,a4paper]{article}
 
-% FONT ENCODING
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% FONT CONFIGURATION
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern,textcomp}
 
 % REFERENCES AND LINKS
-\usepackage[colorlinks = true, linkcolor = blue]{hyperref}
-\usepackage{url}
+\usepackage{url}[hypens]
+\usepackage[colorlinks = true, linkcolor = red, urlcolor = blue]{hyperref}
 
 % FORMATTING
 \usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
-% Reduce space before and after titles
 \usepackage{titlesec}
+\usepackage{parskip}
+% Some space reductions
 \titlespacing \section{0pt}{0pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
 \titlespacing \subsection{0pt}{0pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
 \titlespacing \subsubsection{0pt}{0pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
-% Paragraph and indentation space
-\setlength \parindent{0em}
-\setlength \parskip{1em}
-% Reduce vertical space after captions
 \setlength{\belowcaptionskip}{-1em}
 
 % LISTS CUSTOMIZATION
 \usepackage{enumitem}
-% Same margin and indentation for all lists and no top separation
-\setlist[description]{leftmargin=15pt, labelindent=15pt, itemsep=1ex, topsep=0pt}
+% No top separation in lists
 \setlist[itemize]{topsep=0pt}
 \setlist[enumerate]{topsep=0pt}
 
@@ -49,14 +45,20 @@
 
 % CODE HIGHLIGHTING
 \usepackage{listings}
+\lstset{
+  language=Python,
+  breaklines=true,
+  showstringspaces=false,
+  basicstyle=\ttfamily,
+}
 
 % LANGUAGE
 \usepackage[spanish]{babel}
 
 
-\author{Author}
-\title{\textbf{Title}}
-\date{date}
+\author{Autor}
+\title{\textbf{Título}}
+\date{fecha}
 
 
 \begin{document}
@@ -73,6 +75,7 @@
 
 
 % Uncomment for setting bibliography
+% \phantomsection
 % \addcontentsline{toc}{section}{Referencias}
 % \bibliography{bibliography}
 % \bibliographystyle{unsrt}
