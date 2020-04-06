@@ -17,6 +17,9 @@
   "window.zoomLevel": 0,
   // FORMAT
   "editor.formatOnSave": true,
+  "[bibtex]": {
+    "editor.formatOnSave": false
+  },
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
@@ -45,6 +48,33 @@
   // LATEX
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.latex.outDir": "../",
+  "latex-workshop.synctex.path": ".",
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.synctex",
+    "*.synctex.gz",
+    "*.nav"
+  ],
   // SETTINGS SYNC
   "sync.gist": "1fa5fc817959b29c0982068e4f069dea"
 }
