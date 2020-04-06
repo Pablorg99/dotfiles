@@ -87,6 +87,10 @@ installYarn() {
   sudo apt-get install -y yarn >> $logFile
 }
 
+installLatex() {
+  sudo apt-get install -y texlive-full &>> $logFile
+}
+
 installPip() {
   sudo apt-get install -y python-pip &>> $logFile
   sudo apt-get install -y python3-pip &>> $logFile
@@ -102,21 +106,23 @@ installPoetry() {
   source $HOME/.poetry/env
 }
 
+installFlutter() {
+  git clone https://github.com/flutter/flutter.git -b stable $HOME/development/devtools/flutter-sdk &>> $logFile
+}
+
+installPhp() {
+  sudo add-apt-repository ppa:ondrej/php -y &>> $logFile
+  sudo apt-get update &>> $logFile
+  sudo apt-get install -y php &>> $logFile
+}
+
+installSymfony() {
+  wget https://get.symfony.com/cli/installer -O - | bash &>> $logFile
+}
+
 installOpenJDKs() {
   sudo apt-get install -y openjdk-8-jdk >> $logFile
   sudo apt-get install -y openjdk-11-jdk >> $logFile
-}
-
-installFlutter() {
-  git clone https://github.com/flutter/flutter.git -b stable $HOME/development/devtools/flutter-sdk
-}
-
-installAndroidStudio() {
-  wget https://redirector.gvt1.com/edgedl/android/studio/ide-zips/3.6.1.0/android-studio-ide-192.6241897-linux.tar.gz -O /tmp/android-studio.tar.gz &>> $logFile
-  tar -C /tmp/ -zxvf /tmp/android-studio.tar.gz
-  if [ ! -d /opt/android-studio ]; then
-    sudo mv /tmp/android-studio /opt/
-  fi
 }
 
 installYouTubeDL() {
@@ -124,9 +130,6 @@ installYouTubeDL() {
   sudo chmod a+rx /usr/local/bin/youtube-dl
 }
 
-installLatex() {
-  sudo apt-get install -y texlive-full &>> $logFile
-}
 
 installTelegram() {
   wget https://telegram.org/dl/desktop/linux -O /tmp/telegram.tar.xz &>> $logFile
@@ -164,14 +167,14 @@ installDropbox() {
   sudo apt-get install -f -y >> $logFile
 }
 
-installTilda() {
-  sudo apt-get install -y tilda >> $logFile
-}
-
 installVSCode() {
   wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb &>> $logFile
   sudo dpkg -i /tmp/vscode.deb &>> $logFile
   sudo apt-get install -f -y >> $logFile
+}
+
+installTilda() {
+  sudo apt-get install -y tilda >> $logFile
 }
 
 ##########################
@@ -259,21 +262,22 @@ installDocker & showLoading "Docker"
 installDockerCompose & showLoading "Docker-Compose"
 installNode & showLoading "Node"
 installYarn & showLoading "Yarn"
+installLatex & showLoading "LaTeX"
 installPip & showLoading "Pip"
 installVirtualenv & showLoading "Virtualenv"
 installPoetry & showLoading "Poetry"
-installOpenJDKs & showLoading "OpenJDKs"
 installFlutter & showLoading "Flutter"
-installAndroidStudio & showLoading "Android Studio"
+installPhp & showLoading "Php"
+installSymfony & showLoading "Symfony"
+installOpenJDKs & showLoading "OpenJDKs"
 installYouTubeDL & showLoading "YouTube-DL"
-installLatex & showLoading "LaTeX"
 installTelegram & showLoading "Telegram"
 installFranz & showLoading "Franz"
 installSpotify & showLoading "Spotify"
 installMegaSync & showLoading "MegaSync"
 installDropbox & showLoading "Dropbox"
-installTilda & showLoading "Tilda"
 installVSCode & showLoading "VSCode"
+installTilda & showLoading "Tilda"
 
 # ADDING SSH KEY TO GITHUB
 echo "ADDING SSH KEY TO GITHUB"
