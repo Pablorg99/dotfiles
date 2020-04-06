@@ -173,6 +173,14 @@ installVSCode() {
   sudo apt-get install -f -y >> $logFile
 }
 
+installJetBrainsToolBox() {
+  wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.16.6319.tar.gz -O /tmp/jetbrains-toolbox.tar.gz &>> $logFile
+  tar -C /tmp/ -zxvf /tmp/jetbrains-toolbox.tar.gz >> $logFile
+  if [ ! -f /usr/local/bin/jetbrains-toolbox-1.16.6319 ]; then
+    sudo mv /tmp/jetbrains-toolbox-1.16.6319/jetbrains-toolbox /usr/local/bin
+  fi
+}
+
 installTilda() {
   sudo apt-get install -y tilda >> $logFile
 }
@@ -277,6 +285,7 @@ installSpotify & showLoading "Spotify"
 installMegaSync & showLoading "MegaSync"
 installDropbox & showLoading "Dropbox"
 installVSCode & showLoading "VSCode"
+installJetBrainsToolBox & showLoading "JetBrains ToolBox"
 installTilda & showLoading "Tilda"
 
 # ADDING SSH KEY TO GITHUB
