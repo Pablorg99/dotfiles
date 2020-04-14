@@ -232,6 +232,10 @@ installPapirus() {
   sudo apt-get install -y papirus-icon-theme &>> $logFile
 }
 
+installOneDarkThemeForTerminal() {
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)" &>> $logFile
+}
+
 ################################
 # DEVELOPMENT FOLDER STRUCTURE #
 ################################
@@ -316,6 +320,7 @@ installOhMyZsh & showLoading "Oh My Zsh"
 installTheFuck & showLoading "TheFuck"
 installNerdTree & showLoading "NerdTree"
 installFiraCode & showLoading "Fira Code"
+installOneDarkThemeForTerminal "One Dark for Terminal"
 installAdapta & showLoading "Adapta"
 installPapirus & showLoading "Papirus"
 
