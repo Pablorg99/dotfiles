@@ -8,19 +8,18 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{lmodern,textcomp}
 
-% REFERENCES AND LINKS
-\usepackage[hyphens]{url}
-\usepackage[colorlinks = true, linkcolor = red, urlcolor = blue]{hyperref}
+\usepackage{url}[hypens]
+\usepackage[colorlinks=true, linkcolor=red, citecolor=red, urlcolor=blue]{hyperref}
 
 % FORMATTING
 \usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
-\usepackage{titlesec}
 \usepackage{parskip}
-% Some space reductions
-\titlespacing \section{0pt}{0pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing \subsection{0pt}{0pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
-\titlespacing \subsubsection{0pt}{0pt plus 2pt minus 2pt}{0pt plus 2pt minus 2pt}
-\setlength{\belowcaptionskip}{-1em}
+\usepackage{setspace}
+
+% LISTS CUSTOMIZATION
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt}
+\setlist[enumerate]{topsep=0pt}
 
 % LISTS CUSTOMIZATION
 \usepackage{enumitem}
@@ -56,8 +55,8 @@
 \usepackage[spanish]{babel}
 
 
-\author{Autor}
 \title{\textbf{Título}}
+\author{Autor}
 \date{fecha}
 
 
@@ -66,6 +65,7 @@
 % Uncomment for setting Bibliography without having to cite
 % \nocite{*}
 
+\onehalfspacing
 \maketitle
 \tableofcontents
 \newpage
