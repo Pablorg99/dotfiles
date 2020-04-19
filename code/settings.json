@@ -4,7 +4,7 @@
   "workbench.iconTheme": "material-icon-theme",
   // FONT
   "editor.fontFamily": "Fira Code",
-  "editor.fontSize": 18,
+  "editor.fontSize": 16,
   "editor.fontWeight": "500",
   "editor.fontLigatures": true,
   "terminal.integrated.fontWeightBold": "500",
