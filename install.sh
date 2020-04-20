@@ -57,6 +57,10 @@ installCurl() {
   sudo apt-get install -y curl >> $logFile
 }
 
+installSnap() {
+  sudo apt-get install -y snapd >> $logFile
+}
+
 installZsh() {
   sudo apt-get install -y zsh >> $logFile
 }
@@ -281,6 +285,7 @@ installGit & showLoading "Git"
 installVim & showLoading "Vim"
 installZsh & showLoading "Zsh"
 installCurl & showLoading "Curl"
+installSnap & showLoading "Snap"
 installDocker & showLoading "Docker"
 installDockerCompose & showLoading "Docker-Compose"
 installNode & showLoading "Node"

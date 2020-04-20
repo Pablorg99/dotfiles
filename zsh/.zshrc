@@ -17,6 +17,7 @@ export PATH="$HOME/development/devtools/flutter-sdk/bin:$PATH" # Flutter
 export PATH="$HOME/.symfony/bin:$PATH" # Symfony
 export PATH="$HOME/.yarn/bin:$PATH" # Yarn
 export PATH="$HOME/.poetry/bin:$PATH" # Poetry
+export PATH="/snap/bin:$PATH" # Snap
 export PATH=".:$PATH" # Current directory
 
 # THE FUCK
