@@ -47,9 +47,6 @@
   "git.enableSmartCommit": true,
   // LATEX
   "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.synctex.afterBuild.enabled": true,
-  "latex-workshop.latex.outDir": "../",
-  "latex-workshop.synctex.path": ".",
   "latex-workshop.latex.autoClean.run": "onBuilt",
   "latex-workshop.latex.clean.fileTypes": [
     "*.aux",
