@@ -117,7 +117,14 @@ installFlutter() {
 installPhp() {
   sudo add-apt-repository ppa:ondrej/php -y &>> $logFile
   sudo apt-get update &>> $logFile
-  sudo apt-get install -y php &>> $logFile
+  sudo apt-get install -y php php-xml php-curl &>> $logFile
+}
+
+installComposer() {
+  sudo apt-get install -y php-cli php-mbstring &>> $logFile
+  HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+  php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" >> $logFile
+  sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer &>> $logFile
 }
 
 installSymfony() {
@@ -296,6 +303,7 @@ installVirtualenv & showLoading "Virtualenv"
 installPoetry & showLoading "Poetry"
 installFlutter & showLoading "Flutter"
 installPhp & showLoading "Php"
+installComposer & showLoading "Composer"
 installSymfony & showLoading "Symfony"
 installOpenJDKs & showLoading "OpenJDKs"
 installYouTubeDL & showLoading "YouTube-DL"
