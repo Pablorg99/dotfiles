@@ -47,6 +47,7 @@
   "git.enableSmartCommit": true,
   // LATEX
   "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.message.update.show": false,
   "latex-workshop.latex.autoClean.run": "onBuilt",
   "latex-workshop.latex.clean.fileTypes": [
     "*.aux",
