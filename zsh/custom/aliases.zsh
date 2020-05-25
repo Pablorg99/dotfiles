@@ -29,7 +29,7 @@ alias pykata="createPythonKataFromName"
 
 # VENV
 alias venv="source venv/bin/activate"
-alias new-venv="virtualenv -p python3 venv && source venv/bin/activate"
+alias new-venv="virtualenv -p python3.7 venv && source venv/bin/activate"
 
 # OTHERS
 alias ucossh="ssh -X i72rogup@ts.uco.es"
