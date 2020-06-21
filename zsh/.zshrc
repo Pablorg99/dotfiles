@@ -2,6 +2,9 @@
 ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ADD_NEWLINE=(false)
 
+# PLUGINS VARIABLES
+export NVM_COMPLETION=true
+
 # PLUGINS
 plugins=(git common-aliases docker docker-compose zsh-nvm poetry flutter thefuck copydir copyfile command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
 
