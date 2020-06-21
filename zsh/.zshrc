@@ -3,7 +3,7 @@ ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ADD_NEWLINE=(false)
 
 # PLUGINS
-plugins=(git common-aliases docker docker-compose poetry flutter thefuck copydir copyfile command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+plugins=(git common-aliases docker docker-compose zsh-nvm poetry flutter thefuck copydir copyfile command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
 
 # ENV VARIABLES
 export ZSH="$HOME/.oh-my-zsh"
@@ -31,4 +31,5 @@ fi
 # ENABLE GLOBAL SYNTAX
 setopt extended_glob
 
+source $HOME/dotfiles/zsh/private_config.zsh
 source $ZSH/oh-my-zsh.sh

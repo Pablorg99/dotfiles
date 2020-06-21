@@ -16,3 +16,6 @@
 [submodule "templates/typescript-kata-template"]
 	path = templates/typescript-kata-template
 	url = git@github.com:Pablorg99/typescript-kata-template.git
+[submodule "zsh/custom/plugins/zsh-nvm"]
+	path = zsh/custom/plugins/zsh-nvm
+	url = git@github.com:lukechilds/zsh-nvm.git
