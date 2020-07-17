@@ -1,15 +1,14 @@
 {
-  // THEMES
   "workbench.colorTheme": "Material Theme High Contrast",
   "workbench.iconTheme": "material-icon-theme",
 
   // FONT
   "editor.fontFamily": "Fira Code",
-  "editor.fontSize": 16,
+  "editor.fontSize": 15,
   "editor.fontWeight": "500",
   "editor.fontLigatures": true,
   "terminal.integrated.fontWeightBold": "500",
-  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontFamily": "Fira Code",
   "terminal.integrated.fontWeight": "500",
 
@@ -19,25 +18,37 @@
   "window.zoomLevel": 0,
 
   // EDITOR
-  "cSpell.language": "en, en-GB, es",
   "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "cSpell.language": "en, en-GB, es",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.preferences.importModuleSpecifier": "relative",
   "javascript.preferences.importModuleSpecifier": "relative",
   "typescript.preferences.quoteStyle": "single",
   "javascript.preferences.quoteStyle": "single",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "python.jediEnabled": false,
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true
   },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
 
   // FORMATTING
   "editor.formatOnSave": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "typescriptHero.imports.organizeOnSave": true,
   "[bibtex]": { "editor.formatOnSave": false },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[vue]": { "editor.defaultFormatter": "octref.vetur" },
