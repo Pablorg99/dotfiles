@@ -113,7 +113,7 @@ installComposer() {
 }
 
 installSymfony() {
-  wget https://get.symfony.com/cli/installer -O - | bash &>> $logFile
+  wget -q https://get.symfony.com/cli/installer -O - | bash &>> $logFile
 }
 
 installOpenJDKs() {
@@ -122,7 +122,7 @@ installOpenJDKs() {
 }
 
 installYouTubeDL() {
-  sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+  sudo curl -sL https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
   sudo chmod a+rx /usr/local/bin/youtube-dl
 }
 
@@ -244,7 +244,7 @@ createNewSshKey() {
   sshKey=$(cat ~/.ssh/id_rsa.pub)
   read -s -p "Enter a personal acces token token with 'write:public_key' scope (https://github.com/settings/tokens): " githubToken
   curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hostname)\", \"key\": \"$sshKey\"}" https://api.github.com/user/keys &>> $logFile
-  echo -ne "\n"
+  echo
   yes | ssh -T git@github.com >> $logFile
 }
 
@@ -305,10 +305,11 @@ installTilda & showLoading "Tilda"
 
 # ADDING SSH KEY TO GITHUB
 echo "SSH KEY FOR GITHUB"
-read -p "Dou you want to create a ssh key and link it to GitHub? " -n 1 -r
+read -p "Dou you want to create a ssh key and link it to GitHub? [y/N] " -n 1
+echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-  createNewSshKey
+  echo "I'm in"
 fi
 
 # THEMES AND EXTENSIONS
