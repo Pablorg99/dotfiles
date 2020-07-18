@@ -34,7 +34,7 @@ fi
 # ENABLE GLOBAL SYNTAX
 setopt extended_glob
 
-if test -f $HOME/dotfiles/zsh/private_config.zsh; then
+if [ -f $HOME/dotfiles/zsh/private_config.zsh ]; then
     source $HOME/dotfiles/zsh/private_config.zsh
 fi
 
