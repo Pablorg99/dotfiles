@@ -175,7 +175,7 @@ installBirdtray() {
   cd /tmp/birdtray-master/build &>> $logFile
   cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/birdtray .. &>> $logFile
   sudo cmake --build . &>> $logFile
-  cd -
+  cd $HOME
 }
 
 installVSCode() {
@@ -220,12 +220,6 @@ installFiraCode() {
   sudo apt-get install -y fonts-firacode >> $logFile
 }
 
-installAdapta() {
-  sudo add-apt-repository ppa:tista/adapta -y &>> $logFile
-  sudo apt-get update &>> $logFile
-  sudo apt-get install -y adapta-gtk-theme &>> $logFile
-}
-
 installPapirus() {
   sudo add-apt-repository ppa:papirus/papirus -y &>> $logFile
   sudo apt-get update &>> $logFile
@@ -238,7 +232,7 @@ installPaper() {
   sudo apt install -y paper-icon-theme &>> $logFile
 }
 
-installOneDarkThemeForTerminal() {
+installOneDarkTerminal() {
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)" &>> $logFile
 }
 
@@ -323,9 +317,9 @@ installOhMyZsh & showLoading "Oh My Zsh"
 installTheFuck & showLoading "TheFuck"
 installNerdTree & showLoading "NerdTree"
 installFiraCode & showLoading "Fira Code"
-installOneDarkThemeForTerminal "One Dark for Terminal"
-installAdapta & showLoading "Adapta"
-installPapirus & showLoading "Papirus"
+installOneDarkTerminal & showLoading "OneDark Terminal"
+installPapirus & showLoading "Papirus Icons"
+installPaper & showLoading "Paper Icons"
 
 # DEVELOPMENT FOLDER STRUCTURE AND DOTFILES
 echo "OTHERS"
