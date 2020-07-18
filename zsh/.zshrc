@@ -27,7 +27,7 @@ export PATH=".:$PATH" # Current directory
 eval $(thefuck --alias joder)
 
 # AUTOCOMPLETION FIXING TRICK
-if ls $HOME/.zcompdump* 1> /dev/null 2>&1; then
+if ls "$HOME/.zcompdump"* 1> /dev/null 2>&1; then
     rm -rf $HOME/.zcompdump*
 fi
 
