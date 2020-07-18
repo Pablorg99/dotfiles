@@ -76,6 +76,10 @@ installDockerCompose() {
   sudo chmod +x /usr/local/bin/docker-compose
 }
 
+installNvm() {
+  wget -qO - https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash &>> $logFile
+}
+
 installYarn() {
   curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - &>> $logFile
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list >> $logFile
@@ -283,6 +287,7 @@ installZsh & showLoading "Zsh"
 installCurl & showLoading "Curl"
 installDocker & showLoading "Docker"
 installDockerCompose & showLoading "Docker-Compose"
+installNvm & showLoading "Nvm"
 installYarn & showLoading "Yarn"
 installLatex & showLoading "LaTeX"
 installPip & showLoading "Pip"
