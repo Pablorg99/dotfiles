@@ -308,7 +308,7 @@ read -p "Dou you want to create a ssh key and link it to GitHub? [y/N] " -n 1
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-  echo "I'm in"
+  createNewSshKey
 fi
 
 # THEMES AND EXTENSIONS
@@ -319,7 +319,8 @@ installNerdTree & showLoading "NerdTree"
 installFiraCode & showLoading "Fira Code"
 installOneDarkTerminal & showLoading "OneDark Terminal"
 installPapirus & showLoading "Papirus Icons"
-installPaper & showLoading "Paper Icons"
+# ppa without support for focal lts
+# installPaper & showLoading "Paper Icons"
 
 # DEVELOPMENT FOLDER STRUCTURE AND DOTFILES
 echo "OTHERS"
