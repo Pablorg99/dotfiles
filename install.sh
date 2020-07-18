@@ -14,6 +14,7 @@ showLoading() {
   myPid=$!
   loadingText=$1
   eraseToEndOfLine="\r\033[K"
+  greenCheck="\e[1;32m\xE2\x9C\x94\e[0m"
 
   echo -ne "$loadingText\r"
 
@@ -29,7 +30,7 @@ showLoading() {
     sleep 0.5
   done
 
-  echo -e "$loadingText \e[1;32m\xE2\x9C\x94\e[0m"
+  echo -e "$loadingText $greenCheck"
 }
 
 #################
