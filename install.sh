@@ -57,10 +57,6 @@ installCurl() {
   sudo apt-get install -y curl >> $logFile
 }
 
-installSnap() {
-  sudo apt-get install -y snapd >> $logFile
-}
-
 installZsh() {
   sudo apt-get install -y zsh >> $logFile
 }
@@ -68,7 +64,7 @@ installZsh() {
 installDocker() {
   sudo apt-get install -y apt-transport-https ca-certificates gnupg-agent software-properties-common >> $logFile
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &>> $logFile
-  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" >> $logFile
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" >> $logFile
   sudo apt-get update >> $logFile
   sudo apt-get install -y docker-ce docker-ce-cli containerd.io >> $logFile
   sudo usermod -aG docker $USER
@@ -79,9 +75,9 @@ installDockerCompose() {
   sudo chmod +x /usr/local/bin/docker-compose
 }
 
-installNode() {
-  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - &>> $logFile
-  sudo apt-get install -y nodejs >> $logFile
+installNvm() {
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+  nvm install --lts
 }
 
 installYarn() {
@@ -102,12 +98,6 @@ installPip() {
 
 installVirtualenv() {
   sudo apt-get install -y virtualenv >> $logFile
-}
-
-installPoetry() {
-  curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python >> $logFile
-  chmod ug+x $HOME/.poetry/env
-  source $HOME/.poetry/env
 }
 
 installFlutter() {
@@ -164,11 +154,12 @@ installSpotify() {
 }
 
 installMegaSync() {
-  wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -O /tmp/megasync.deb &>> $logFile
+  megaUrl=https://mega.nz/linux/MEGAsync/xUbuntu_$(lsb_release -sr)/amd64
+  wget $megaUrl/megasync-xUbuntu_$(lsb_release -sr)_amd64.deb -O /tmp/megasync.deb &>> $logFile
   sudo dpkg -i /tmp/megasync.deb &>> $logFile
   sudo apt-get install -f -y >> $logFile
-  wget https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/nautilus-megasync-xUbuntu_18.04_amd64.deb -O /tmp/megasync-nautilus-extension &>> $logFile
-  sudo dpkg -i /tmp/megasync-nautilus-extension &>> $logFile
+  wget $megaUrl/nautilus-megasync-xUbuntu_$(lsb_release -sr)_amd64.deb -O /tmp/megasync-extension.deb &>> $logFile
+  sudo dpkg -i /tmp/megasync-extension.deb &>> $logFile
   sudo apt-get install -f -y >> $logFile
 }
 
@@ -243,6 +234,12 @@ installPapirus() {
   sudo apt-get install -y papirus-icon-theme &>> $logFile
 }
 
+installPaper() {
+  sudo add-apt-repository -u ppa:snwh/ppa -y &>> $logFile
+  sudo apt-get update &>> $logFile
+  sudo apt install -y paper-icon-theme &>> $logFile
+}
+
 installOneDarkThemeForTerminal() {
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)" &>> $logFile
 }
@@ -267,19 +264,6 @@ cloneDotfiles() {
   git clone --recurse-submodules -j8 git@github.com:Pablorg99/dotfiles.git $HOME/dotfiles &>> $logFile
 }
 
-cloneDjangoRecipes() {
-  git clone git@github.com:Pablorg99/django-recipes.git $HOME/development/repositories/sideprojects/django-recipes &>> $logFile
-  virtualenv -p python3 venv >> $logFile
-}
-
-cloneUcoPuntoMobile() {
-  git clone git@github.com:Pablorg99/ucopunto-mobile.git $HOME/development/repositories/sideprojects/ucopunto-mobile &>> $logFile
-}
-
-cloneUcoPractices() {
-  git clone git@github.com:Pablorg99/UCO-Practices.git $HOME/development/repositories/university/UCO-Practices &>> $logFile
-}
-
 # ASK SUDO PASSWORD
 sudo ls . > $logFile
 
@@ -292,15 +276,13 @@ installGit & showLoading "Git"
 installVim & showLoading "Vim"
 installZsh & showLoading "Zsh"
 installCurl & showLoading "Curl"
-installSnap & showLoading "Snap"
 installDocker & showLoading "Docker"
 installDockerCompose & showLoading "Docker-Compose"
-installNode & showLoading "Node"
+installNvm & showLoading "Nvm"
 installYarn & showLoading "Yarn"
 installLatex & showLoading "LaTeX"
 installPip & showLoading "Pip"
 installVirtualenv & showLoading "Virtualenv"
-installPoetry & showLoading "Poetry"
 installFlutter & showLoading "Flutter"
 installPhp & showLoading "Php"
 installComposer & showLoading "Composer"
@@ -318,14 +300,14 @@ installJetBrainsToolBox & showLoading "JetBrains ToolBox"
 installTilda & showLoading "Tilda"
 
 # ADDING SSH KEY TO GITHUB
-echo "ADDING SSH KEY TO GITHUB"
-rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
-ssh-keygen -t rsa -b 4096
-sshKey=$(cat ~/.ssh/id_rsa.pub)
-read -s -p "Enter a personal acces token token with 'write:public_key' scope (https://github.com/settings/tokens): " githubToken
-curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hostname)\", \"key\": \"$sshKey\"}" https://api.github.com/user/keys &>> $logFile
-echo -ne "\n"
-yes | ssh -T git@github.com >> $logFile
+# echo "ADDING SSH KEY TO GITHUB"
+# rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
+# ssh-keygen -t rsa -b 4096
+# sshKey=$(cat ~/.ssh/id_rsa.pub)
+# read -s -p "Enter a personal acces token token with 'write:public_key' scope (https://github.com/settings/tokens): " githubToken
+# curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hostname)\", \"key\": \"$sshKey\"}" https://api.github.com/user/keys &>> $logFile
+# echo -ne "\n"
+# yes | ssh -T git@github.com >> $logFile
 
 # THEMES AND EXTENSIONS
 echo "INSTALLING EXTENSIONS AND PLUGINS"
@@ -337,15 +319,10 @@ installOneDarkThemeForTerminal "One Dark for Terminal"
 installAdapta & showLoading "Adapta"
 installPapirus & showLoading "Papirus"
 
-# DEVELOPMENT FOLDER STRUCTURE
-developmentFolderStructure & showLoading "DEVELOPMENT FOLDER STRUCTURE"
-
-# CLONING REPOSITORIES
-echo "CLONING REPOSITORIES"
+# DEVELOPMENT FOLDER STRUCTURE AND DOTFILES
+echo "OTHERS"
+developmentFolderStructure & showLoading "Development Folder"
 cloneDotfiles & showLoading "Dotfiles"
-cloneDjangoRecipes & showLoading "Django Recipes"
-cloneUcoPuntoMobile & showLoading "Uco Punto Mobile"
-cloneUcoPractices & showLoading "Uco Practices"
 
 # SHELL CONFIGURATION
 sudo chsh -s /bin/zsh $USER

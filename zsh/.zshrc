@@ -18,9 +18,7 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" # Default PATH
 export PATH="$HOME/development/devtools/flutter-sdk/bin:$PATH" # Flutter
 export PATH="$HOME/.symfony/bin:$PATH" # Symfony
-export PATH="$HOME/.poetry/bin:$PATH" # Poetry
 export PATH="$HOME/.yarn/bin:$PATH" # Yarn
-export PATH="/snap/bin:$PATH" # Snap
 export PATH=".:$PATH" # Current directory
 
 # THE FUCK
