@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # THEME
 ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ADD_NEWLINE=(false)
@@ -32,5 +34,8 @@ fi
 # ENABLE GLOBAL SYNTAX
 setopt extended_glob
 
-source $HOME/dotfiles/zsh/private_config.zsh
+if [ -f $HOME/dotfiles/zsh/private_config.zsh ]; then
+    source $HOME/dotfiles/zsh/private_config.zsh
+fi
+
 source $ZSH/oh-my-zsh.sh
