@@ -107,9 +107,8 @@ installPhp() {
 
 installComposer() {
   sudo apt-get install -y php-cli php-mbstring &>> $logFile
-  HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
-  php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" >> $logFile
-  sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer &>> $logFile
+  sudo curl -s https://getcomposer.org/installer | php &>> $logFile
+  sudo mv composer.phar /usr/local/bin/composer
 }
 
 installSymfony() {
