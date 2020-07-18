@@ -232,10 +232,6 @@ installPaper() {
   sudo apt install -y paper-icon-theme &>> $logFile
 }
 
-installOneDarkTerminal() {
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)" &>> $logFile
-}
-
 createNewSshKey() {
   rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
   ssh-keygen -t rsa -b 4096
@@ -317,7 +313,6 @@ installOhMyZsh & showLoading "Oh My Zsh"
 installTheFuck & showLoading "TheFuck"
 installNerdTree & showLoading "NerdTree"
 installFiraCode & showLoading "Fira Code"
-installOneDarkTerminal & showLoading "OneDark Terminal"
 installPapirus & showLoading "Papirus Icons"
 # ppa without support for focal lts
 # installPaper & showLoading "Paper Icons"
