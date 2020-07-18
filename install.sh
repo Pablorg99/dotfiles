@@ -261,11 +261,12 @@ developmentFolderStructure() {
   mkdir -p $HOME/development/repositories/university
 }
 
-########################
-# CLONING REPOSITORIES #
-########################
 cloneDotfiles() {
   git clone --recurse-submodules -j8 git@github.com:Pablorg99/dotfiles.git $HOME/dotfiles &>> $logFile
+}
+
+createShortcuts() {
+  sudo ln -sfn $HOME/dotfiles/desktop/birdtray.desktop /usr/share/applications/birdtray.desktop
 }
 
 # ASK SUDO PASSWORD
@@ -323,7 +324,8 @@ installPapirus & showLoading "Papirus"
 # DEVELOPMENT FOLDER STRUCTURE AND DOTFILES
 echo "OTHERS"
 developmentFolderStructure & showLoading "Development Folder"
-cloneDotfiles & showLoading "Dotfiles"
+cloneDotfiles & showLoading "Cloning Dotfiles"
+createShortcuts & showLoading "Shortcuts"
 
 # SHELL CONFIGURATION
 sudo chsh -s /bin/zsh $USER

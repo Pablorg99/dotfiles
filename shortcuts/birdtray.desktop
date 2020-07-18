@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Birdtray
+Comment=Minimize Thunderbird Mail to System Tray
+Exec=/opt/birdtray/bin/birdtray
+Icon=/usr/share/icons/Papirus/16x16/panel/thunderbird-panel.svg
+Categories=Internet
+Terminal=false
