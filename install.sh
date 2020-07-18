@@ -126,7 +126,6 @@ installYouTubeDL() {
   sudo chmod a+rx /usr/local/bin/youtube-dl
 }
 
-
 installTelegram() {
   wget https://telegram.org/dl/desktop/linux -O /tmp/telegram.tar.xz &>> $logFile
   tar -C /tmp/ -xvf /tmp/telegram.tar.xz >> $logFile
@@ -239,9 +238,19 @@ installOneDarkThemeForTerminal() {
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)" &>> $logFile
 }
 
-################################
-# DEVELOPMENT FOLDER STRUCTURE #
-################################
+createNewSshKey() {
+  rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
+  ssh-keygen -t rsa -b 4096
+  sshKey=$(cat ~/.ssh/id_rsa.pub)
+  read -s -p "Enter a personal acces token token with 'write:public_key' scope (https://github.com/settings/tokens): " githubToken
+  curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hostname)\", \"key\": \"$sshKey\"}" https://api.github.com/user/keys &>> $logFile
+  echo -ne "\n"
+  yes | ssh -T git@github.com >> $logFile
+}
+
+##########
+# OTHERS #
+##########
 developmentFolderStructure() {
   mkdir -p $HOME/development
   mkdir -p $HOME/development/devtools
@@ -294,14 +303,12 @@ installJetBrainsToolBox & showLoading "JetBrains ToolBox"
 installTilda & showLoading "Tilda"
 
 # ADDING SSH KEY TO GITHUB
-# echo "ADDING SSH KEY TO GITHUB"
-# rm -rf ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
-# ssh-keygen -t rsa -b 4096
-# sshKey=$(cat ~/.ssh/id_rsa.pub)
-# read -s -p "Enter a personal acces token token with 'write:public_key' scope (https://github.com/settings/tokens): " githubToken
-# curl -i --header "Authorization: token $githubToken" --data "{\"title\": \"$(hostname)\", \"key\": \"$sshKey\"}" https://api.github.com/user/keys &>> $logFile
-# echo -ne "\n"
-# yes | ssh -T git@github.com >> $logFile
+echo "SSH KEY FOR GITHUB"
+read -p "Dou you want to create a ssh key and link it to GitHub? " -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  createNewSshKey
+fi
 
 # THEMES AND EXTENSIONS
 echo "INSTALLING EXTENSIONS AND PLUGINS"
