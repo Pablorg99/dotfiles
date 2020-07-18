@@ -83,7 +83,7 @@ installYarn() {
 }
 
 installLatex() {
-  sudo apt-get install -y texlive-full &>> $logFile
+  sudo apt-get install -y texlive &>> $logFile
 }
 
 installPip() {
