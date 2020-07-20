@@ -161,6 +161,10 @@ installMegaSync() {
   sudo apt-get install -f -y >> $logFile
 }
 
+installTilda() {
+  sudo apt-get install -y tilda >> $logFile
+}
+
 installDropbox() {
   wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb -O /tmp/dropbox.deb &>> $logFile
   sudo dpkg -i /tmp/dropbox.deb &>> $logFile
@@ -184,16 +188,18 @@ installVSCode() {
   sudo apt-get install -f -y >> $logFile
 }
 
+installDiscord() {
+	wget -O /tmp/discord.deb https://discordapp.com/api/download?platform=linux&format=deb &>> $logfile
+	sudo dpkg -i /tmp/discord.deb &>> $logFile
+	sudo apt-get install -f -y >> $logFile
+}
+
 installJetBrainsToolBox() {
   wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.16.6319.tar.gz -O /tmp/jetbrains-toolbox.tar.gz &>> $logFile
   tar -C /tmp/ -zxvf /tmp/jetbrains-toolbox.tar.gz >> $logFile
   if [ ! -f /usr/local/bin/jetbrains-toolbox-1.16.6319 ]; then
     sudo mv /tmp/jetbrains-toolbox-1.16.6319/jetbrains-toolbox /usr/local/bin
   fi
-}
-
-installTilda() {
-  sudo apt-get install -y tilda >> $logFile
 }
 
 ##########################
@@ -292,11 +298,12 @@ installTelegram & showLoading "Telegram"
 installFranz & showLoading "Franz"
 installSpotify & showLoading "Spotify"
 installMegaSync & showLoading "MegaSync"
-installDropbox & showLoading "Dropbox"
+installTilda & showLoading "Tilda"
 installBirdtray & showLoading "Birdtray"
 installVSCode & showLoading "VSCode"
+installDiscord & showLoading "Discord"
+installDropbox & showLoading "Dropbox"
 installJetBrainsToolBox & showLoading "JetBrains ToolBox"
-installTilda & showLoading "Tilda"
 
 # ADDING SSH KEY TO GITHUB
 echo "SSH KEY FOR GITHUB"
