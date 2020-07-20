@@ -17,11 +17,13 @@ export ZSH_CUSTOM="$HOME/dotfiles/zsh/custom"
 export ANDROID_HOME="$HOME/development/devtools/android-sdk"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" # Default PATH
-export PATH="$HOME/development/devtools/flutter-sdk/bin:$PATH" # Flutter
-export PATH="$HOME/.symfony/bin:$PATH" # Symfony
-export PATH="$HOME/.yarn/bin:$PATH" # Yarn
-export PATH=".:$PATH" # Current directory
+DEFAULT_PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+FLUTTER="$HOME/development/devtools/flutter-sdk/bin"
+SYMFONY="$HOME/.symfony/bin"
+YARN="$HOME/.yarn/bin"
+CURRENT="."
+
+export PATH="$DEFAULT_PATH:$FLUTTER:$SYMFONY:$YARN:$CURRENT"
 
 # THE FUCK
 eval $(thefuck --alias joder)
