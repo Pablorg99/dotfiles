@@ -260,7 +260,7 @@ cloneDotfiles() {
 }
 
 createShortcuts() {
-  sudo ln -sfn $HOME/dotfiles/desktop/birdtray.desktop /usr/share/applications/birdtray.desktop
+  sudo ln -sfn $HOME/dotfiles/shortcuts/birdtray.desktop /usr/share/applications/birdtray.desktop
 }
 
 # ASK SUDO PASSWORD
