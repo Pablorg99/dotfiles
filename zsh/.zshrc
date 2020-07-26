@@ -20,10 +20,11 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 DEFAULT_PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 FLUTTER="$HOME/development/devtools/flutter-sdk/bin"
 SYMFONY="$HOME/.symfony/bin"
+DART="/usr/lib/dart/bin"
 YARN="$HOME/.yarn/bin"
 CURRENT="."
 
-export PATH="$DEFAULT_PATH:$FLUTTER:$SYMFONY:$YARN:$CURRENT"
+export PATH="$DEFAULT_PATH:$FLUTTER:$DART:$SYMFONY:$YARN:$CURRENT"
 
 # THE FUCK
 eval $(thefuck --alias joder)
