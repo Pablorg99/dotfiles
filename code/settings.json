@@ -43,17 +43,14 @@
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": false
   },
-
-  // FORMATTING
-  "editor.formatOnSave": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "typescriptHero.imports.organizeOnSave": true,
   "[bibtex]": { "editor.formatOnSave": false },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[vue]": { "editor.defaultFormatter": "octref.vetur" },
   "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
   "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "prettier.singleQuote": true,
   "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
 
