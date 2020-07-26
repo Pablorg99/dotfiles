@@ -58,6 +58,10 @@ installCurl() {
   sudo apt-get install -y curl >> $logFile
 }
 
+installAutojump() {
+  sudo apt-get install -y autojump >> $logFile
+}
+
 installZsh() {
   sudo apt-get install -y zsh >> $logFile
 }
@@ -287,6 +291,7 @@ installGit & showLoading "Git"
 installVim & showLoading "Vim"
 installZsh & showLoading "Zsh"
 installCurl & showLoading "Curl"
+installAutojump & showLoading "Autojump"
 installDocker & showLoading "Docker"
 installDockerCompose & showLoading "Docker-Compose"
 installNvm & showLoading "Nvm"
