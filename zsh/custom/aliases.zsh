@@ -12,6 +12,9 @@ alias katas="cd $HOME/development/repositories/codekatas"
 alias asl="cd $HOME/development/repositories/asl"
 alias uni="cd $HOME/development/repositories/university"
 
+# GIT
+alias gunwip="git reset HEAD~1"
+
 # TEMPORAL DIRECTORIES
 alias ir="cd $HOME/MEGA/Universidad/Tercero/Cuatrimestre_2/IR/Teoria/Apuntes/ && code ."
 alias issbc="cd $HOME/development/repositories/university/UCO-Practices/Tercero/ISSBC"
