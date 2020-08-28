@@ -333,8 +333,7 @@ installTheFuck & showLoading "TheFuck"
 installNerdTree & showLoading "NerdTree"
 installFiraCode & showLoading "Fira Code"
 installPapirus & showLoading "Papirus Icons"
-# ppa without support for focal lts
-# installPaper & showLoading "Paper Icons"
+installPaper & showLoading "Paper Icons"
 
 # DEVELOPMENT FOLDER STRUCTURE AND DOTFILES
 echo "OTHERS"
