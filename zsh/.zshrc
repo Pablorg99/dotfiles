@@ -8,7 +8,7 @@ SPACESHIP_PROMPT_ADD_NEWLINE=(false)
 export NVM_COMPLETION=true
 
 # PLUGINS
-plugins=(git common-aliases autojump docker docker-compose zsh-nvm poetry flutter thefuck copydir copyfile command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
+plugins=(git common-aliases autojump fzf docker docker-compose zsh-nvm poetry flutter thefuck copydir copyfile command-not-found colored-man-pages zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
 
 # ENV VARIABLES
 export ZSH="$HOME/.oh-my-zsh"

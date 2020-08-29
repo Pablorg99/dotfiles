@@ -62,6 +62,10 @@ installAutojump() {
   sudo apt-get install -y autojump >> $logFile
 }
 
+installFzf() {
+  sudo apt-get install -y fzf >> $logFile
+}
+
 installZsh() {
   sudo apt-get install -y zsh >> $logFile
 }
@@ -286,6 +290,7 @@ installVim & showLoading "Vim"
 installZsh & showLoading "Zsh"
 installCurl & showLoading "Curl"
 installAutojump & showLoading "Autojump"
+installFzf & showLoading "Fzf"
 installDocker & showLoading "Docker"
 installDockerCompose & showLoading "Docker-Compose"
 installNvm & showLoading "Nvm"
