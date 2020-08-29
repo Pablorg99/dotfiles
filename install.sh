@@ -182,7 +182,7 @@ installDropbox() {
 }
 
 installBirdtray() {
-  sudo apt-get install -y qt5-default libqt5x11extras5-dev qttools5-dev libqt5svg5-dev libx11-xcb-dev cmake x11extras-dev &>> $logFile
+  sudo apt-get install -y qt5-default libqt5x11extras5-dev qttools5-dev libqt5svg5-dev libx11-xcb-dev cmake &>> $logFile
   wget https://github.com/gyunaev/birdtray/archive/master.zip -O /tmp/birdtray.zip &>> $logFile
   unzip /tmp/birdtray.zip -d /tmp/ &>> $logFile
   mkdir -p /tmp/birdtray-master/build
