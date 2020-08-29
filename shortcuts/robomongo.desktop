@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=RoboMongo
+Comment=Mongo shell GUI
+Exec=/opt/robomongo/bin/robo3t
+Icon=/usr/share/icons/Papirus/64x64/apps/robo3t.svg
+Categories=Development
+Terminal=false
