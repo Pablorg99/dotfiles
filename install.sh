@@ -108,12 +108,6 @@ installFlutter() {
   git clone https://github.com/flutter/flutter.git -b stable $HOME/development/devtools/flutter-sdk &>> $logFile
 }
 
-installDartSdk() {
-  sudo apt-get install apt-transport-https &>> $logFile
-  sudo sh -c 'wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -' &>> $logFile
-  sudo sh -c 'wget -qO- https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list' &>> $logFile
-}
-
 installPhp() {
   sudo add-apt-repository ppa:ondrej/php -y &>> $logFile
   sudo apt-get update &>> $logFile
@@ -300,7 +294,6 @@ installLatex & showLoading "LaTeX"
 installPip & showLoading "Pip"
 installVirtualenv & showLoading "Virtualenv"
 installFlutter & showLoading "Flutter"
-installDartSdk & showLoading "DartSDK"
 installPhp & showLoading "Php"
 installComposer & showLoading "Composer"
 installSymfony & showLoading "Symfony"
