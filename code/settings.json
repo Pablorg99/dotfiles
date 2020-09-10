@@ -49,6 +49,7 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "[bibtex]": { "editor.formatOnSave": false },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[vue]": { "editor.defaultFormatter": "octref.vetur" },
   "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
