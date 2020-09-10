@@ -21,6 +21,7 @@
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "cSpell.language": "en, en-GB, es",
+  "python.languageServer": "Microsoft",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.preferences.quoteStyle": "single",
@@ -29,10 +30,11 @@
   "javascript.preferences.quoteStyle": "single",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "files.exclude": {
+    "**/__pycache__": true,
     "**/.classpath": true,
+    "**/.factorypath": true,
     "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
+    "**/.settings": true
   },
   "[dart]": {
     "editor.formatOnSave": true,
