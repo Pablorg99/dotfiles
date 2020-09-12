@@ -179,17 +179,6 @@ installDropbox() {
   sudo apt-get install -f -y >> $logFile
 }
 
-installBirdtray() {
-  sudo apt-get install -y qt5-default libqt5x11extras5-dev qttools5-dev libqt5svg5-dev libx11-xcb-dev cmake &>> $logFile
-  wget https://github.com/gyunaev/birdtray/archive/master.zip -O /tmp/birdtray.zip &>> $logFile
-  unzip /tmp/birdtray.zip -d /tmp/ &>> $logFile
-  mkdir -p /tmp/birdtray-master/build
-  cd /tmp/birdtray-master/build
-  cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/birdtray .. &>> $logFile
-  sudo cmake --build . --target install &>> $logFile
-  cd $HOME
-}
-
 installVSCode() {
   wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb &>> $logFile
   sudo dpkg -i /tmp/vscode.deb &>> $logFile
@@ -274,7 +263,7 @@ cloneDotfiles() {
 }
 
 createShortcuts() {
-  sudo ln -sfn $HOME/dotfiles/shortcuts/birdtray.desktop /usr/share/applications/birdtray.desktop
+  sudo ln -sfn $HOME/dotfiles/shortcuts/robomongo.desktop /usr/share/applications/robomongo.desktop
 }
 
 # ASK SUDO PASSWORD
@@ -309,7 +298,6 @@ installFranz & showLoading "Franz"
 installSpotify & showLoading "Spotify"
 installMegaSync & showLoading "MegaSync"
 installTilda & showLoading "Tilda"
-installBirdtray & showLoading "Birdtray"
 installVSCode & showLoading "VSCode"
 installDiscord & showLoading "Discord"
 installDropbox & showLoading "Dropbox"
