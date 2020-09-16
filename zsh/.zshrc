@@ -21,9 +21,10 @@ DEFAULT_PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 FLUTTER="$HOME/development/devtools/flutter-sdk/bin"
 SYMFONY="$HOME/.symfony/bin"
 YARN="$HOME/.yarn/bin"
+SNAP="/snap/bin"
 CURRENT="."
 
-export PATH="$DEFAULT_PATH:$FLUTTER:$DART:$SYMFONY:$YARN:$CURRENT"
+export PATH="$DEFAULT_PATH:$FLUTTER:$DART:$SYMFONY:$YARN:$SNAP:$CURRENT"
 
 # THE FUCK
 eval $(thefuck --alias joder)
