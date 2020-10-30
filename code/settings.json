@@ -1,11 +1,12 @@
 {
-  "workbench.colorTheme": "One Dark Pro",
+  // THEME
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Dark Pro",
 
   // FONT
   "editor.fontFamily": "Fira Code",
   "editor.fontSize": 15,
-  "editor.fontWeight": "500",
+  "editor.fontWeight": "470",
   "editor.fontLigatures": true,
   "terminal.integrated.fontWeightBold": "500",
   "terminal.integrated.fontSize": 14,
@@ -16,26 +17,28 @@
   "window.menuBarVisibility": "toggle",
   "editor.wordWrap": "on",
   "window.zoomLevel": 0,
+  "workbench.panel.defaultLocation": "right",
 
   // EDITOR
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "cSpell.language": "en, en-GB, es",
   "python.languageServer": "Microsoft",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.preferences.quoteStyle": "single",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "javascript.preferences.importModuleSpecifier": "relative",
-  "javascript.preferences.quoteStyle": "single",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "files.exclude": {
-    "**/__pycache__": true,
-    "**/.classpath": true,
-    "**/.factorypath": true,
-    "**/.project": true,
-    "**/.settings": true
-  },
+  "files.exclude": { "**/__pycache__": true },
+
+  // FORMAT
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "prettier.singleQuote": true,
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[vue]": { "editor.defaultFormatter": "octref.vetur" },
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[yaml]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -46,17 +49,17 @@
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": false
   },
-  "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true,
-  "[bibtex]": { "editor.formatOnSave": false },
-  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[vue]": { "editor.defaultFormatter": "octref.vetur" },
-  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
-  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "prettier.singleQuote": true,
   "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
+  "python.formatting.autopep8Args": ["--max-line-length=120"],
+  "python.sortImports.args": ["-l", "120"],
+
+  // JS & TS IMPORTS
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
 
   // CONFIRMATIONS
   "explorer.confirmDelete": false,
@@ -73,8 +76,9 @@
   "latex-workshop.latex.autoClean.run": "onBuilt",
   "latex-workshop.latex.clean.fileTypes": [
     "*.aux",
-    "*.bbl",
     "*.blg",
+    "*.bbl",
+    "*.bcf",
     "*.idx",
     "*.ind",
     "*.lof",
@@ -93,6 +97,7 @@
     "*.snm",
     "*.synctex",
     "*.synctex.gz",
+    "*.xml",
     "*.nav"
   ],
 
