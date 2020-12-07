@@ -15,16 +15,6 @@ alias uni="cd $HOME/development/repositories/university"
 # GIT
 alias gunwip="git reset HEAD~1"
 
-# TEMPORAL DIRECTORIES
-alias ir="cd $HOME/MEGA/Universidad/Tercero/Cuatrimestre_2/IR/Teoria/Apuntes/ && code ."
-alias issbc="cd $HOME/development/repositories/university/UCO-Practices/Tercero/ISSBC"
-
-# REPOSITORIES
-alias djangorecipes="cd $HOME/development/repositories/sideprojects/django-recipes && source venv/bin/activate"
-# alias reactrecipes="cd $HOME/development/repositories/sideprojects/react-recipes"
-alias ucopuntomobile="cd $HOME/development/repositories/sideprojects/ucopunto-mobile"
-alias practicesuco="cd $HOME/development/repositories/university/UCO-Practices"
-
 # TEMPLATES
 alias templatex="createLatexProjectFromName"
 alias tskata="createTypescriptKataFromName"
