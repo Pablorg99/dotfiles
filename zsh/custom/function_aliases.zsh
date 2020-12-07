@@ -17,14 +17,13 @@ createTypescriptKataFromName() {
         mkdir $1
         cd $1
         cp -r $HOME/dotfiles/templates/typescript-kata-template/. $(pwd)
-        mv src/kata.ts src/"$1".ts
-        mv test/kata.spec.ts test/"$1".spec.ts
-        sed -i "1s/.*/import Kata from '..\/src\/$1';/" test/"$1".spec.ts
         rm -rf .git
+        sed -i "s/Kata/$1/g" src/Kata.ts
+        sed -i "s/Kata/$1/g" test/Kata.spec.ts
+        mv src/Kata.ts src/"$1".ts
+        mv test/Kata.spec.ts test/"$1".spec.ts
+        nvm use
         yarn install
-        git init
-        git add --all
-        git commit -m "Initial commit"
         code $(pwd)
     else
         echo "Correct usage: tskata <kata_name>"
