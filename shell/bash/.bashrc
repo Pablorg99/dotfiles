@@ -48,3 +48,5 @@ if [ -n "$(ls -A "$DOTFILES_PATH/shell/bash/completions/")" ]; then
     source "$bash_file"
   done
 fi
+
+[[ -r "$DOTFILES_PATH/shell/private/init.sh" ]] && source "$DOTFILES_PATH/shell/private/init.sh"
