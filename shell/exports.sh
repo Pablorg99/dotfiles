@@ -9,7 +9,7 @@ export CODELY_THEME_PWD_MODE="short" # full, short, home_relative
 # ------------------------------------------------------------------------------
 # Languages
 # ------------------------------------------------------------------------------
-export JAVA_HOME='/Library/Java/JavaVirtualMachines/amazon-corretto-15.jdk/Contents/Home'
+# JAVA_HOME is set per project by the active version manager, not globally.
 export GEM_HOME="$HOME/.gem"
 export GOPATH="$HOME/.go"
 
@@ -25,16 +25,24 @@ fi
 export FZF_DEFAULT_OPTS="--color=$fzf_colors --reverse"
 
 # ------------------------------------------------------------------------------
+# SSH
+# ------------------------------------------------------------------------------
+# Use Bitwarden Desktop as SSH agent (macOS, installed via dmg/brew).
+# For App Store install, change to:
+#   $HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock
+export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+
+# ------------------------------------------------------------------------------
 # Path - The higher it is, the more priority it has
 # ------------------------------------------------------------------------------
 path=(
 	"$HOME/bin"
 	"$DOTLY_PATH/bin"
 	"$DOTFILES_PATH/bin"
-	"$JAVA_HOME/bin"
 	"$GEM_HOME/bin"
 	"$GOPATH/bin"
 	"$HOME/.cargo/bin"
+	"$HOME/.bun/bin"
 	"/usr/local/opt/ruby/bin"
 	"/usr/local/opt/python/libexec/bin"
 	"/opt/homebrew/bin"
