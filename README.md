@@ -27,3 +27,19 @@ bash <(curl -s https://raw.githubusercontent.com/CodelyTV/dotly/HEAD/restorer)
 You need to know your GitHub username, repository and install ssh key if your repository is private.
 
 It also supports other git repos, but you need to know your git repository url.
+
+## Manual steps after restoring
+
+Things that live outside this repo on purpose, kept in `shell/private/`
+(git-ignored) and copied over by hand:
+
+* **Fonts**: copy `shell/private/fonts/*.otf` to `~/Library/Fonts`. The terminal
+  theme expects Dank Mono Nerd Font, which is a paid font and cannot be
+  installed through Homebrew.
+* **Private shell init**: `shell/private/init.sh` is sourced automatically if it
+  exists. Recreate it with whatever machine-specific environment you need.
+* **Raycast script directory**: point Raycast to `shell/private/raycast` if you
+  restore that folder.
+
+macOS system preferences are applied by `restoration_scripts/02-macos-defaults.sh`.
+Keyboard input sources and Dock apps are set by hand.
