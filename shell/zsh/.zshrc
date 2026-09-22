@@ -33,8 +33,5 @@ source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"
 eval "$(zoxide init zsh)"
 export PATH="$HOME/.local/bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
 [[ -r "$DOTFILES_PATH/shell/private/init.sh" ]] && source "$DOTFILES_PATH/shell/private/init.sh"

@@ -1,0 +1,81 @@
+tap "typewhisper/tap"
+tap "oven-sh/bun"
+tap "denisidoro/tools"
+
+# Shell & core tooling
+brew "denisidoro/tools/docpars"
+brew "bash"
+brew "zsh"
+brew "coreutils"
+brew "findutils"
+brew "gnu-sed"
+brew "make"
+brew "bat"
+brew "eza"
+brew "fzf"
+brew "tree"
+brew "zoxide"
+brew "hyperfine"
+brew "shellcheck"
+brew "shfmt"
+brew "go-task"
+
+# Git & security
+brew "gh"
+brew "git-delta"
+brew "gnupg"
+brew "pinentry-mac"
+brew "bitwarden-cli"
+
+# Languages & runtimes
+brew "fnm"
+brew "oven-sh/bun/bun"
+brew "python@3.14"
+brew "uv"
+
+# Documents
+brew "pandoc"
+brew "poppler"
+
+# Cloud & agents
+brew "vercel"
+brew "opencode"
+brew "mas"
+
+# Apps
+cask "bitwarden"
+cask "chatgpt"
+cask "claude"
+cask "cloudflare-warp"
+cask "cmux"
+cask "codex-app"
+cask "cursor"
+cask "elgato-camera-hub"
+cask "elgato-control-center"
+cask "elgato-stream-deck"
+cask "elgato-wave-link"
+cask "finetune"
+cask "helium-browser"
+cask "megasync"
+cask "notion"
+cask "orbstack"
+cask "raycast"
+cask "rectangle"
+cask "slack"
+cask "spotify"
+cask "telegram"
+cask "typewhisper"
+cask "visual-studio-code"
+cask "vlc"
+cask "whatsapp"
+cask "zen"
+
+mas "Keynote", id: 361285480
+mas "Numbers", id: 361304891
+
+vscode "akamud.vscode-theme-onelight"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-vscode.makefile-tools"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "pkief.material-icon-theme"
+vscode "zhuangtongfa.material-theme"
