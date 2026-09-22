@@ -1,0 +1,23 @@
+# Only curated domains are versioned. Everything else exported by
+# `dot mac defaults export` stays local (accounts, iCloud, Wi-Fi, etc).
+*
+!.gitignore
+!.GlobalPreferences_m.plist
+!app.zen-browser.zen.plist
+!com.apple.AppleMultitouchMouse.plist
+!com.apple.AppleMultitouchTrackpad.plist
+!com.apple.controlcenter.plist
+!com.apple.dock.plist
+!com.apple.driver.AppleBluetoothMultitouch.mouse.plist
+!com.apple.driver.AppleBluetoothMultitouch.trackpad.plist
+!com.apple.finder.plist
+!com.apple.HIToolbox.plist
+!com.apple.menuextra.clock.plist
+!com.apple.screencapture.plist
+!com.apple.symbolichotkeys.plist
+!com.apple.Terminal.plist
+!com.apple.textInput.keyboardServices.textReplacement.plist
+!com.apple.universalaccess.plist
+!com.apple.WindowManager.plist
+!com.raycast.macos.plist
+!com.cmuxterm.app.plist
