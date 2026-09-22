@@ -1,0 +1,13 @@
+# Common
+# ----------------------------------
+shell/zsh/.zim
+
+shell/zsh/**/**.zwc
+shell/zsh/**/**.zwc.old
+
+# Private
+# ----------------------------------
+shell/private/
+
+# macOS
+.DS_Store
