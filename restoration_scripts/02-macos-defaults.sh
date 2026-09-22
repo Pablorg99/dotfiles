@@ -27,7 +27,7 @@ defaults write com.apple.menuextra.clock ShowAMPM -bool true
 # Dock
 # ------------------------------------------------------------------------------
 defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock orientation -string "right"
+defaults write com.apple.dock orientation -string "left"
 defaults write com.apple.dock tilesize -int 69
 defaults write com.apple.dock magnification -bool false
 defaults write com.apple.dock show-recents -bool false
