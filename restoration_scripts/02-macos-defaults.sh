@@ -72,8 +72,15 @@ defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
 defaults write com.apple.screencapture target -string "clipboard"
 defaults write com.apple.screencapture showsClicks -bool true
 
+# cmux: the system-wide show/hide hotkey bound in cmux.json only fires once
+# this flag is on. It is not part of the JSON config.
+# ------------------------------------------------------------------------------
+defaults write com.cmuxterm.app "systemWideHotkey.enabled" -bool true
+
 # System keyboard shortcuts live in a nested plist that `defaults write` handles
-# poorly, so they are restored from the exported file instead.
+# poorly, so they are restored from the exported file instead. The export has
+# Dock "turn hiding on/off" (cmd+opt+D, id 52) disabled: it collides with
+# cmux's split browser right.
 # ------------------------------------------------------------------------------
 settings_path="${DOTFILES_PATH:-$HOME/.dotfiles}/os/mac/settings"
 for domain in com.apple.symbolichotkeys com.raycast.macos; do

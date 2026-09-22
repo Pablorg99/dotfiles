@@ -18,3 +18,4 @@
     ~/bin/touch: /opt/homebrew/bin/gtouch
     ~/bin/zsh: /opt/homebrew/bin/zsh
     ~/.config/cmux/cmux.json: os/mac/cmux/cmux.json
+    ~/Library/Application Support/com.cmuxterm.app/config.ghostty: os/mac/cmux/config.ghostty
