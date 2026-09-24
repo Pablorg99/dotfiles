@@ -10,6 +10,8 @@ setopt +o nomatch
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
+fpath=("$HOME/.zsh/completions" $fpath)
+
 # Start Zim
 source "$ZIM_HOME/init.zsh"
 
