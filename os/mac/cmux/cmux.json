@@ -190,6 +190,10 @@
   //     "defaultLayout" : "unified"
   //   },
 
+  "app" : {
+    "reorderOnNotification" : false
+  },
+
   "shortcuts" : {
     "bindings" : {
       "showHideAllWindows" : "opt+space"
