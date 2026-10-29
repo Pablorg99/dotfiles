@@ -43,3 +43,6 @@ Things that live outside this repo on purpose, kept in `shell/private/`
 
 macOS system preferences are applied by `restoration_scripts/02-macos-defaults.sh`.
 Keyboard input sources and Dock apps are set by hand.
+
+Ardia, the default browser, has no Homebrew cask: install it by hand and set it
+as the default browser in System Settings.
