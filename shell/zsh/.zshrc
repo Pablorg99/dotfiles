@@ -5,7 +5,7 @@
 # ZSH Ops
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FCNTL_LOCK
-# Zim sets NO_CLOBBER; let `>>` still create missing files (cmux per-surface history needs it)
+# Zim sets NO_CLOBBER; let `>>` still create missing files
 setopt APPEND_CREATE
 setopt +o nomatch
 # setopt autopushd
