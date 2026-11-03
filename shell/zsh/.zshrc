@@ -34,6 +34,9 @@ source "$DOTLY_PATH/shell/zsh/bindings/dot.zsh"
 source "$DOTLY_PATH/shell/zsh/bindings/reverse_search.zsh"
 source "$DOTFILES_PATH/shell/zsh/key-bindings.zsh"
 
+enable_full_width_emoji_with_variation_selector() { printf '\e[?2027h' }
+enable_full_width_emoji_with_variation_selector
+
 eval "$(zoxide init zsh)"
 export PATH="$HOME/.local/bin:$PATH"
 
