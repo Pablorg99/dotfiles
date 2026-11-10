@@ -39,6 +39,3 @@ enable_full_width_emoji_with_variation_selector
 
 eval "$(zoxide init zsh)"
 export PATH="$HOME/.local/bin:$PATH"
-
-
-[[ -r "$DOTFILES_PATH/shell/private/init.sh" ]] && source "$DOTFILES_PATH/shell/private/init.sh"
