@@ -1,0 +1,14 @@
+{
+  "$schema": "./config.schema.json",
+  "theme": null,
+  "settings": {
+    "warnBeforeClosingLastTab": false,
+    "warnBeforeMovingTabsToProfile": false,
+    "warnBeforeClosingTabGroup": false,
+    "sidebarWidth": 238,
+    "showAdvancedSettings": true,
+    "addressBar": "sidebar",
+    "commandBarPlacement": "centred",
+    "openLinksInLittleArdia": false
+  }
+}

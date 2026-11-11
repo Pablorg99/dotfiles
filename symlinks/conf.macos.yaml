@@ -9,6 +9,7 @@
     - ~/.hushlogin
 
 - link:
+    ~/.config/ardia/config.json: os/mac/ardia/config.json
     ~/.dotly: os/mac/.dotly
     ~/bin/bash: /opt/homebrew/bin/bash
     ~/bin/date: /opt/homebrew/bin/gdate
