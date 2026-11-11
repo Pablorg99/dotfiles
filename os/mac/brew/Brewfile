@@ -1,5 +1,6 @@
 tap "oven-sh/bun"
 tap "denisidoro/tools"
+tap "anomalyco/tap"
 
 # Shell & core tooling
 brew "denisidoro/tools/docpars"
@@ -18,6 +19,7 @@ brew "hyperfine"
 brew "shellcheck"
 brew "shfmt"
 brew "go-task"
+brew "actionlint"
 
 # Git & security
 brew "gh"
@@ -28,6 +30,7 @@ brew "bitwarden-cli"
 
 # Languages & runtimes
 brew "fnm"
+brew "pnpm"
 brew "oven-sh/bun/bun"
 brew "python@3.14"
 brew "uv"
@@ -35,6 +38,7 @@ brew "uv"
 # Documents
 brew "pandoc"
 brew "poppler"
+brew "ffmpeg"
 
 # Cloud & agents
 brew "vercel"
@@ -52,6 +56,7 @@ cask "elgato-control-center"
 cask "elgato-stream-deck"
 cask "elgato-wave-link"
 cask "fluidvoice"
+cask "anomalyco/tap/hex"
 cask "linearmouse"
 cask "macshot"
 cask "megasync"
@@ -61,6 +66,7 @@ cask "raycast"
 cask "rectangle"
 cask "slack"
 cask "spotify"
+cask "stremio"
 cask "telegram"
 cask "visual-studio-code"
 cask "vlc"
@@ -69,9 +75,7 @@ cask "whatsapp"
 mas "Keynote", id: 361285480
 mas "Numbers", id: 361304891
 
-vscode "akamud.vscode-theme-onelight"
 vscode "mechatroner.rainbow-csv"
 vscode "ms-vscode.makefile-tools"
 vscode "ms-vsliveshare.vsliveshare"
 vscode "pkief.material-icon-theme"
-vscode "zhuangtongfa.material-theme"

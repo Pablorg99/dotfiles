@@ -1,6 +1,4 @@
-akamud.vscode-theme-onelight
 mechatroner.rainbow-csv
 ms-vscode.makefile-tools
 ms-vsliveshare.vsliveshare
 pkief.material-icon-theme
-zhuangtongfa.material-theme
