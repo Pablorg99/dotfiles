@@ -1,44 +1,64 @@
 <h1 align="center">
-  .dotfiles created using <a href="https://github.com/CodelyTV/dotly">🌚 dotly</a>
+  Pablo's .dotfiles
 </h1>
 
-## Restore your Dotfiles manually
+<p align="center">
+  macOS setup on Apple silicon, built on <a href="https://github.com/CodelyTV/dotly">🌚 dotly</a> with zsh and <a href="https://zimfw.sh">Zim</a>.
+</p>
 
-* Install git
-* Clone your dotfiles repository `git clone [your repository of dotfiles] $HOME/.dotfiles`
-* Go to your dotfiles folder `cd $HOME/.dotfiles`
-* Install git submodules `git submodule update --init --recursive modules/dotly`
-* Install your dotfiles `DOTFILES_PATH="$HOME/.dotfiles" DOTLY_PATH="$DOTFILES_PATH/modules/dotly" "$DOTLY_PATH/bin/dot" self install`
-* Restart your terminal
-* Import your packages `dot package import`
+## Install
 
-## Restore your Dotfiles with script
-
-Using wget
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/CodelyTV/dotly/HEAD/restorer)
+git clone --recurse-submodules https://github.com/Pablorg99/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+DOTFILES_PATH="$HOME/.dotfiles" DOTLY_PATH="$DOTFILES_PATH/modules/dotly" "$DOTLY_PATH/bin/dot" self install
 ```
 
-Using curl
-```bash
-bash <(curl -s https://raw.githubusercontent.com/CodelyTV/dotly/HEAD/restorer)
+Restart the terminal, then install the apps with `dot package import`.
+
+`dot self install` links everything declared in `symlinks/` and runs
+`restoration_scripts/`, which apply the macOS preferences.
+
+## Day to day
+
+| Task                                   | Command                                                        |
+| -------------------------------------- | -------------------------------------------------------------- |
+| Re-link files after adding one         | `dot symlinks apply`                                           |
+| Check the Brewfile against the machine | `brew bundle check --file=os/mac/brew/Brewfile`                |
+| Re-apply macOS preferences             | `restoration_scripts/02-macos-defaults.sh`                     |
+| Save system keyboard shortcuts         | `defaults export com.apple.symbolichotkeys os/mac/settings/com.apple.symbolichotkeys.plist` |
+| Change a browser setting               | `ardia config set <key> <value>` (writes `os/mac/ardia/config.json`) |
+| Update dotly                           | `dot self update`                                              |
+
+The Brewfile is curated by hand: apps installed only to try them out stay off it.
+
+## Structure
+
 ```
-
-You need to know your GitHub username, repository and install ssh key if your repository is private.
-
-It also supports other git repos, but you need to know your git repository url.
+bin/                  personal scripts on the PATH
+editors/code/         VS Code settings, keybindings and extensions
+git/                  global gitignore
+langs/                per-language shell setup (fnm for Node)
+os/mac/               Brewfile, Ardia, LinearMouse, Raycast scripts, exported plists
+restoration_scripts/  macOS preferences as `defaults write` commands
+scripts/              dotly scripts, run as `dot <context> <script>`
+shell/                aliases, exports, functions, bash and zsh config
+symlinks/             what gets linked into $HOME
+```
 
 ## Manual steps after restoring
 
-Things that live outside this repo on purpose, kept in `shell/private/`
-(git-ignored) and copied over by hand:
+* **Fonts**: the terminal and VS Code expect Dank Mono Nerd Font, a paid font
+  that is not in Homebrew. Copy the `.otf` files to `~/Library/Fonts`. They live
+  in `shell/private/fonts/`, which is git-ignored.
+* **Ardia**: the browser has no Homebrew cask. Install it by hand, set it as the
+  default browser in System Settings and install its CLI from
+  Settings › Advanced.
+* **Raycast**: add `os/mac/raycast` as a script directory. Extensions, aliases
+  and hotkeys come from a `.rayconfig` export (Settings › Advanced › Import).
+* **Not scripted**: keyboard input sources, Dock apps and apps without a cask
+  (Xcode, DaVinci Resolve).
 
-* **Fonts**: copy `shell/private/fonts/*.otf` to `~/Library/Fonts`. The terminal
-  theme expects Dank Mono Nerd Font, which is a paid font and cannot be
-  installed through Homebrew.
+## License
 
-macOS system preferences are applied by `restoration_scripts/02-macos-defaults.sh`.
-Keyboard input sources and Dock apps are set by hand.
-
-Ardia, the default browser, has no Homebrew cask: install it by hand and set it
-as the default browser in System Settings.
+[MIT](LICENSE)
