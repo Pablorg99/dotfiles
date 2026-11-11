@@ -1,0 +1,29 @@
+[user]
+	name = Pablo Rodríguez Guillén
+	email = pablorodriguezguillen@gmail.com
+	signingkey = 9863A6487353605B
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
+
+# Diffs in the terminal go through delta. Piped output (scripts, agents) stays
+# plain git. Side-by-side on demand: `git diff | delta --side-by-side`.
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	keep-plus-minus-markers = true
+
+# Machine-specific settings (work identity, etc.) stay out of the repo.
+[include]
+	path = ~/.gitconfig.local

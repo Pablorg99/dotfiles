@@ -18,3 +18,4 @@
     ~/.zshrc: shell/zsh/.zshrc
     ~/.inputrc: shell/.inputrc
     ~/.config/git/ignore: git/ignore
+    ~/.gitconfig: git/.gitconfig
