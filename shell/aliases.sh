@@ -62,7 +62,6 @@ alias gunwip='git rev-list --max-count=1 --format="%s" HEAD | grep -q -- "--wip-
 alias k='kill -9'
 alias i.='(idea $PWD &>/dev/null &)'
 alias v.='(code $PWD &>/dev/null &)'
-alias c.='(cursor $PWD &>/dev/null &)'
 alias o.='open .'
 alias up='dot package update_all'
 
