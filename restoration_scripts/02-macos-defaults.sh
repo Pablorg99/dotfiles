@@ -48,7 +48,7 @@ defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
 # ------------------------------------------------------------------------------
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder NewWindowTarget -string "PfHm"
-defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.finder ShowSidebar -bool true
 defaults write NSGlobalDomain com.apple.springing.enabled -bool true
 defaults write NSGlobalDomain com.apple.springing.delay -float 0.5
@@ -60,6 +60,7 @@ defaults write NSGlobalDomain com.apple.keyboard.fnState -bool false
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticInlinePredictionEnabled -bool false
 
 # Trackpad & mouse
