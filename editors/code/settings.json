@@ -1,0 +1,48 @@
+{
+  "editor.fontSize": 16,
+  "editor.tabSize": 2,
+  "files.autoSave": "onFocusChange",
+  "editor.lineHeight": 2,
+  "makefile.configureOnOpen": false,
+  "workbench.colorTheme": "Light 2026",
+  "terminal.integrated.fontSize": 16,
+  "explorer.confirmDelete": false,
+  "editor.fontFamily": "DankMono Nerd Font, 'Courier New', monospace",
+  "git.confirmSync": false,
+  "editor.minimap.enabled": false,
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/{page,layout,index}.{ts,tsx}": "${dirname(1)}/${dirname}/${filename}.${extname}",
+    "**/{index,actions}.{ts,tsx}": "${dirname}/${filename}.${extname}",
+    "**/SKILL.md": "🤹 ${dirname} skill"
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "git.enableSmartCommit": true,
+  "github.copilot.nextEditSuggestions.eagerness": "medium",
+  "[markdown]": {
+    "diffEditor.ignoreTrimWhitespace": true
+  },
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.edits.allowCodeShifting": "never",
+  "git.openRepositoryInParentFolders": "always",
+  "terminal.integrated.initialHint": false,
+  "workbench.startupEditor": "none",
+  "claudeCode.preferredLocation": "panel",
+  "claudeCode.hideOnboarding": true,
+  "chat.useHooks": true,
+  "github.copilot.chat.agentDebugLog.fileLogging.enabled": true,
+  "chat.viewSessions.orientation": "stacked",
+  "chat.tips.enabled": false,
+  "editor.accessibilitySupport": "off",
+  "chat.agent.sandbox.fileSystem.userConfiguredPaths": {
+    "deniedPaths": [
+      "~/.ssh"
+    ]
+  },
+  "security.workspace.trust.untrustedFiles": "open"
+}

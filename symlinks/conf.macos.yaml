@@ -5,11 +5,14 @@
       create: true
       force: true
 
-- create:
-    - ~/.hushlogin
+- shell:
+    - [touch ~/.hushlogin, Silencing the login banner]
 
 - link:
     ~/.config/ardia/config.json: os/mac/ardia/config.json
+    ~/.config/linearmouse/linearmouse.json: os/mac/linearmouse/linearmouse.json
+    ~/Library/Application Support/Code/User/keybindings.json: editors/code/keybindings.json
+    ~/Library/Application Support/Code/User/settings.json: editors/code/settings.json
     ~/.dotly: os/mac/.dotly
     ~/bin/bash: /opt/homebrew/bin/bash
     ~/bin/date: /opt/homebrew/bin/gdate
