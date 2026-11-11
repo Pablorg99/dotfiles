@@ -22,7 +22,7 @@ alias gcam='git add --all && git commit -m'
 alias gco="git checkout"
 alias gcm="git checkout main"
 alias gsw="git switch"
-alias gd='$DOTLY_PATH/bin/dot git pretty-diff'
+alias gd='dot git pretty-diff'
 alias gs="git status -sb"
 alias gf="git fetch --all -p"
 alias gp="git push"
@@ -31,7 +31,7 @@ alias gpsup='git push --set-upstream origin $(git branch --show-current)'
 alias gl="git pull --rebase --autostash"
 alias gb="git branch"
 alias gbD="git branch -D"
-alias glog='$DOTLY_PATH/bin/dot git pretty-log'
+alias glog='dot git pretty-log'
 alias gloga="git log --oneline --decorate --graph"
 
 # Git: rebase
