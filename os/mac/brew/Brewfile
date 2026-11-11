@@ -12,12 +12,10 @@ brew "make"
 brew "bat"
 brew "eza"
 brew "fzf"
-brew "tree"
 brew "zoxide"
 brew "hyperfine"
 brew "shellcheck"
 brew "shfmt"
-brew "go-task"
 brew "actionlint"
 
 # Git & security
