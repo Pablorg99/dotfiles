@@ -72,15 +72,17 @@ defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
 defaults write com.apple.screencapture target -string "clipboard"
 defaults write com.apple.screencapture showsClicks -bool true
 
+# Raycast: open with cmd+space. Extensions, aliases and hotkeys live in its own
+# database and only travel through a manual .rayconfig export.
+# ------------------------------------------------------------------------------
+defaults write com.raycast.macos raycastGlobalHotkey -string "Command-49"
+
 # System keyboard shortcuts live in a nested plist that `defaults write` handles
 # poorly, so they are restored from the exported file instead. The export has
 # Dock "turn hiding on/off" (cmd+opt+D, id 52) disabled.
 # ------------------------------------------------------------------------------
-settings_path="${DOTFILES_PATH:-$HOME/.dotfiles}/os/mac/settings"
-for domain in com.apple.symbolichotkeys com.raycast.macos; do
-	plist="$settings_path/$domain.plist"
-	[[ -f $plist ]] && defaults import "$domain" "$plist"
-done
+plist="${DOTFILES_PATH:-$HOME/.dotfiles}/os/mac/settings/com.apple.symbolichotkeys.plist"
+[[ -f $plist ]] && defaults import com.apple.symbolichotkeys "$plist"
 
 # Apply
 # ------------------------------------------------------------------------------
