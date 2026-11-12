@@ -57,7 +57,7 @@ symlinks/             what gets linked into $HOME
 * **Raycast**: add `os/mac/raycast` as a script directory. Extensions, aliases
   and hotkeys come from a `.rayconfig` export (Settings › Advanced › Import).
 * **Not scripted**: keyboard input sources, Dock apps and apps without a cask
-  (Xcode, DaVinci Resolve).
+  (DaVinci Resolve).
 
 ## License
 
