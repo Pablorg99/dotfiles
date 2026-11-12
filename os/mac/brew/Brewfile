@@ -38,7 +38,6 @@ brew "poppler"
 brew "ffmpeg"
 
 # Cloud & agents
-brew "vercel"
 brew "opencode"
 brew "mas"
 
@@ -61,6 +60,7 @@ cask "rectangle"
 cask "slack"
 cask "spotify"
 cask "telegram"
+cask "vercel"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
